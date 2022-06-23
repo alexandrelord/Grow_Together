@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import PlantList from './components/PlantList/PlantList'
+import * as plantsAPI from './utilities/plants-api'
+import { useState, useEffect} from 'react'
 
-function App() {
+
+export default function App() {
+  
+  const [plants, setPlants] = useState([])
+
+  useEffect(function () {
+    async function fetchPlants() {
+      const plants = await plantsAPI.getPlants();
+      setPlants(plants);
+    }
+    fetchPlants();
+  }, []);
+  
+  const plantList = plants.map(plant => {
+    console.log(plant)
+    // <PlantList key={plant.id} plant={plant}/>
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Grow Together</h1>
+      <p>{plantList}</p>
     </div>
   );
 }
 
-export default App;
