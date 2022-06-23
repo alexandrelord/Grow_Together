@@ -2,21 +2,11 @@ import axios from 'axios'
 
 const BASE_URL = "http://localhost:8000/api"
 
-// export async function getPlants() {
-//     try {
-//         let fetchResponse = await fetch(`${BASE_URL}/plants/`)
-//         if(!fetchResponse.ok) throw new Error("Fetch Failed!")
-//         console.log(fetchResponse.json())
-//         return fetchResponse
-//     } catch (error) {
-//         console.log(error)
-//     }
-// }
-
 export async function getPlants() {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts`)
-    let actualData = await response.json()
-    console.log(response)
-    console.log(actualData)
-   
+    let response = await axios.get(`${BASE_URL}/plants/`)
+    // console.log(response.data)
+    return response.data   
 }
+
+// Unlike the fetch() method, the response returned from this library contains the JSON format we need.
+// It also has the advantage of robust error handling, so we don’t need to check and throw an error like we did earlier with the fetch() method.

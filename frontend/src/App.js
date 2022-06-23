@@ -1,4 +1,5 @@
 import './App.css';
+import PlantList from './components/PlantList/PlantList'
 import * as plantsAPI from './utilities/plants-api'
 import { useState, useEffect} from 'react'
 
@@ -15,9 +16,15 @@ export default function App() {
     fetchPlants();
   }, []);
   
+  const plantList = plants.map(plant => {
+    console.log(plant)
+    // <PlantList key={plant.id} plant={plant}/>
+  })
+
   return (
     <div className="App">
-      <h1>Grow Togther</h1>
+      <h1>Grow Together</h1>
+      <p>{plantList}</p>
     </div>
   );
 }
