@@ -16,15 +16,14 @@ export default function App() {
     fetchPlants();
   }, []);
   
-  const plantList = plants.map(plant => {
-    console.log(plant)
-    // <PlantList key={plant.id} plant={plant}/>
-  })
+  const plantList = plants.map(plant => (
+    <PlantList key={plant.id} plant={plant}/>
+  ))
 
   return (
     <div className="App">
       <h1>Grow Together</h1>
-      <p>{plantList}</p>
+      {plantList}
     </div>
   );
 }
