@@ -1,3 +1,22 @@
+# Frontend
+
+## Install node modules
+```
+npm i
+```
+
+<hr>
+
+## API Data-Fetching Methods in React 
+[Link](https://blog.logrocket.com/modern-api-data-fetching-methods-react/)
+### Using the Axios Library 
+
+- Axios is a promise-based HTTP client that connects to an endpoint.
+- Unlike the fetch() method, the response returned from this library contains the JSON format.
+- Has the advantage of robust error handling. There is no need to check and throw an error like the fetch() method.
+
+<hr>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
