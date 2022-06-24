@@ -31,9 +31,9 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('plant_image', models.CharField(blank=True, default=None, max_length=200)),
-                ('matched_plant', models.ForeignKey(blank=True, default=None, on_delete=django.db.models.deletion.CASCADE, related_name='matched_plant', to='main_app.plant')),
+                ('matched_plant', models.ForeignKey(blank=True, default=None, on_delete=django.db.models.deletion.CASCADE, related_name='matched_plant', to='api.plant')),
                 ('user', models.ForeignKey(default=1, on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
-                ('user_plant', models.ForeignKey(blank=True, default=None, on_delete=django.db.models.deletion.CASCADE, related_name='user_plant', to='main_app.plant')),
+                ('user_plant', models.ForeignKey(blank=True, default=None, on_delete=django.db.models.deletion.CASCADE, related_name='user_plant', to='api.plant')),
             ],
         ),
     ]

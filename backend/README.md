@@ -56,7 +56,7 @@ DJANGO_SECRET_KEY='<secret-key>'
 
 Example: 
 
-- create a file in main_app called serializers.py
+- create a file in api called serializers.py
 Describes the process of going from a python object to json
 
 - In views.py
