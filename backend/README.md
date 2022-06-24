@@ -12,26 +12,31 @@ python3 -m venv venv
 ```
 source venv/bin/activate
 ```
-### Installing dependencies
-```
-python -m pip install <package-name>
-```
+
 ### Deactivating the environment
 ```
 deactivate
 ```
+
+### Installing dependencies
+
+- See requirements.txt file to look at the dependencies
+- To install all dependencies:
+
+```
+pip install -r requirements.txt
+```
+- To install dependencies individually:
+```
+python -m pip install <package-name>
+```
+
+- After installing dependencies
+```
+pip3 freeze > requirements.txt
+```
+
 <hr>
-
-## Dependencies
-
-```
-pip -m install ...
-django
-djangorestframework
-django-cors-headers
-python-decouple
-psycocopg2-binary
-```
 
 #### General Info on Dependencies
 - CORS allows interaction of ressources between domains [django-cors-headers](https://pypi.org/project/django-cors-headers/)
