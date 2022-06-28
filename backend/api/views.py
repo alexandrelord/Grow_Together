@@ -5,13 +5,13 @@ from rest_framework import status
 from .serializers import PlantSerializer
 from .models import Plant
 
-
 @api_view(['GET'])
 def plant_list(request):
     # if request.method == 'GET':
         plants = Plant.objects.all()
-        serializer = PlantSerializer(plants, many=True)
-        return Response(serializer.data)
+        # serializer = PlantSerializer(plants, many=True)
+        return Response({"plants":plants})
+        
 
 # @api_view(['GET'])
 # def plant_detail(request, id):
@@ -21,7 +21,9 @@ def plant_list(request):
 #         return Response(status=status.HTTP_404_NOT_FOUND)
     
 #     # if request.method == 'GET':
+#     print(plant.id)
 #     serializer = PlantSerializer(plant)
+#     print(serializer.data['id'])
 #     return Response(serializer.data)
 
     
