@@ -14,26 +14,11 @@
 #### Function-based views - [docs](https://www.django-rest-framework.org/api-guide/views/#function-based-views)
 - Provides a set of simple decorators that wrap your function-based views to ensure they receive an instance of Request (rather than the usual Django HttpRequest) and allows them to return a Response (instead of a Django HttpResponse), and allow you to configure how the request is processed.
 
-Example
-- Create a function that will Query the DB
-- Serialize the instance(s)
-- return JSON
 
-```
-@api_view(['GET'])
-def plant_list(request):
-    plants = Plant.objects.all()
-    serializer = PlantSerializer(plants, many=True)
-    return Response(serializer.data)
-```
+#### Response() Class [docs](https://www.django-rest-framework.org/api-guide/responses/)
 
+- The Response class allows you to return content that can be rendered into multiple content types, depending on the client request.
 
-[Response()](https://www.django-rest-framework.org/api-guide/responses/)
-
-The Response class allows you to return content that can be rendered into multiple content types, depending on the client request.
-
-
-<hr>
 
 
 

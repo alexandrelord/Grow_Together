@@ -1,13 +1,8 @@
-from rest_framework_simplejwt.views import TokenObtainPairView
 from rest_framework import status, permissions
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from .serializers import MyTokenObtainPairSerializer, CustomUserSerializer
-
-class ObtainTokenPairWithColorView(TokenObtainPairView):
-    # permission_classes = (permissions.AllowAny,)
-    serializer_class = MyTokenObtainPairSerializer
+from .serializers import CustomUserSerializer
 
 class CustomUserCreate(APIView):
     permission_classes = (permissions.AllowAny,)
