@@ -7,10 +7,10 @@ from .models import Plant
 
 @api_view(['GET'])
 def plant_list(request):
-    # if request.method == 'GET':
+    if request.method == 'GET':
         plants = Plant.objects.all()
-        # serializer = PlantSerializer(plants, many=True)
-        return Response({"plants":plants})
+        serializer = PlantSerializer(plants, many=True)
+        return Response(serializer.data)
         
 
 # @api_view(['GET'])

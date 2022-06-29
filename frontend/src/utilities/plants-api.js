@@ -1,10 +1,9 @@
-import axios from 'axios'
+import { axiosInstance } from "./axios-instance"
 
-// look for proxy fix in package json
-const BASE_URL = "http://localhost:8000/api"
+
 
 export async function getPlants() {
-    let response = await axios.get(`${BASE_URL}/plants/`)
-    // console.log(response.data)
+    let response = await axiosInstance.get(`/api/plants/`)
+    // console.log('API response: ', response.data)
     return response.data   
 }
