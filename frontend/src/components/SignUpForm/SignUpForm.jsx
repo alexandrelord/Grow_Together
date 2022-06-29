@@ -13,6 +13,7 @@ export default function SignUpForm({ setUser }) {
   async function handleSubmit(evt) {
     evt.preventDefault()
     try {
+      // const { username, email, password } = credentials
       const user = await signUp(credentials)
       setUser(user)
     } catch {

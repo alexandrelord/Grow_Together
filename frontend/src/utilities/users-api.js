@@ -19,20 +19,22 @@ const axiosInstance = axios.create({
 
 export async function signUp(credentials) {
     const response = await axiosInstance.post('/user/create/', credentials)
-    console.log(response.data)
 
+    if (response.status === 201) {
+        response.data.password = credentials.password
+        return getToken(credentials)
+    }
 }
 
+export function login(credentials) {
+     return getToken(credentials)
+}
 
-export async function login(credentials) {
-    
-    const response = await axiosInstance.post('/token/obtain/', credentials)
-    // console.log(response.data.access)
-    axiosInstance.defaults.headers['Authorization'] = `JWT ${response.data.access}`
-    localStorage.setItem('access_token', response.data.access)
-    localStorage.setItem('refresh_token', response.data.refresh)
+export async function getToken(credentials) {
+    const token = await axiosInstance.post('/token/obtain/', credentials)
+    axiosInstance.defaults.headers['Authorization'] = `JWT ${token.data.access}`
+    localStorage.setItem('access_token', token.data.access)
+    localStorage.setItem('refresh_token', token.data.refresh)
 
-    const user = JSON.parse(atob(response.data.access.split('.')[1]))
-    console.log(user)
-    
+    return JSON.parse(atob(token.data.access.split('.')[1])).user_id  
 }
