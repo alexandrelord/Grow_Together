@@ -1,0 +1,28 @@
+body {
+  height: 100vh;
+  background-image: linear-gradient(
+    to bottom,
+    #9ed5bb 0%,
+    #eaf5e9 48%,
+    rgba(234, 245, 233, 0) 100%
+  );
+}
+
+.loginTitle {
+    margin: 150px 0 0 20px;
+    font-size: 20px;
+  }
+  
+  .noAccount {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 12px;
+    /* letter-spacing: 0.45px; */
+  }
+
+  .showLogin {
+    margin-left: 10px;
+  }

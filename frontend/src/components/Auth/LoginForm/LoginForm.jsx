@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import {login} from '../../utilities/users-api'
+import {login} from '../../../utilities/users-api'
+import style from './LoginForm.module.css'
 
 export default function LoginForm({ setUser }) {
   const [credentials, setCredentials] = useState({ username: '', password: ''})
@@ -21,18 +22,21 @@ export default function LoginForm({ setUser }) {
   }
 
     return (
-      <div>
-        <div className="form-container" onSubmit={handleSubmit}>
+      <>
+      {/* <div className={style.loginTitle}>
+        <p>Log in to Grow Together</p>
+        <p className={style.noAccount}>Don't have an account?</p>
+      </div> */}
+
+        <div className={style.formContainer} onSubmit={handleSubmit}>
           <form autoComplete="off" >
-            <label>Username</label>
-            <input type="text" name="username" value={credentials.username} onChange={handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
+            <input type="text" name="username" value={credentials.username} onChange={handleChange} placeholder='Username' required />
+            <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder='Password' required />
             <button type="submit">LOG IN</button>
           </form>
         </div>
         <p className="error-message">&nbsp;{error}</p>
-      </div>
+      </>
     )
   
 }
