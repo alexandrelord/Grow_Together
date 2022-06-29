@@ -19,6 +19,23 @@ source venv/bin/activate
 ```
 deactivate
 ```
+## Python Virtual Envronments Linux:
+
+## Install venv tool
+sudo apt install python3-venv
+
+### Create a Python Virtual Environment
+python3 -m venv venv
+```
+### Activating the environment (Linux)
+```
+source env/bin/activate
+```
+
+### Deactivating the environment
+```
+deactivate
+
 
 ### Installing dependencies
 
