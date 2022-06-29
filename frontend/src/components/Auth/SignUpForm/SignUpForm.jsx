@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { signUp } from '../../utilities/users-api'
+import { signUp } from '../../../utilities/users-api'
 
 export default function SignUpForm({ setUser }) {
   const [credentials, setCredentials] = useState({username: '', email: '', password: '', confirm: ''})
@@ -24,14 +24,11 @@ export default function SignUpForm({ setUser }) {
     <div>
         <div className="form-container">
           <form autoComplete="off" onSubmit={handleSubmit}>
-            <label>Username</label>
-            <input type="text" name="username" value={credentials.username} onChange={handleChange} required />
-            <label>Email</label>
-            <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
-            <label>Password</label>
-            <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-            <label>Confirm</label>
-            <input type="password" name="confirm" value={credentials.confirm} onChange={handleChange} required />
+            
+            <input type="text" name="username" value={credentials.username} placeholder='Username' onChange={handleChange} required />
+            <input type="email" name="email" value={credentials.email} placeholder='Email' onChange={handleChange} required />
+            <input type="password" name="password" value={credentials.password} placeholder='Password' onChange={handleChange} required />
+            <input type="password" name="confirm" value={credentials.confirm} placeholder='Confirm' onChange={handleChange} required />
             <button type="submit">SIGN UP</button>
           </form>
         </div>
