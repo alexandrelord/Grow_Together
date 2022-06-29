@@ -25,6 +25,7 @@ export function getToken() {
     const refreshPayload = JSON.parse(atob(refreshToken.split('.')[1]))
     if (refreshPayload.exp < Date.now() / 1000) {
         localStorage.removeItem('refresh_token')
+        return null
     } else {
         return usersAPI.refreshToken(refreshToken)
     }
