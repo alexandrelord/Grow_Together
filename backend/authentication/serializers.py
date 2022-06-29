@@ -1,5 +1,7 @@
 from rest_framework import serializers
 from .models import CustomUser
+from django.contrib.auth.hashers import make_password, check_password
+
 
 class CustomUserSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(required=True)
