@@ -5,7 +5,8 @@ class Plant(models.Model):
     common_name = models.CharField(max_length=100)
     water_use = models.CharField(max_length=50)
     light = models.CharField(max_length= 50) 
-    maintenance = models.CharField(max_length=50)
+    insects = models.CharField(max_length=50)
+    disease = models.CharField(max_length=50)
     image = models.CharField(max_length=200, blank=True, default=None)
 
     def __str__(self):
