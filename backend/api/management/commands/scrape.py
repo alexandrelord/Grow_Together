@@ -11,7 +11,7 @@ baseURL = "http://www.tropicopia.com/house-plant/detail.np/detail-"
      
 class Command(BaseCommand):
     def handle(self, *args, **options):
-       for num in range (1,356):
+       for num in range (152,153):
         newNum = str(num)
         if len(newNum) == 1:
             newNum = ("0" + newNum)
@@ -36,7 +36,7 @@ class Command(BaseCommand):
                 newCommon = info[16].text.strip()
                 newLight = info[35].text.strip()
                 newLight = newLight.split('(')
-                newLight = light[0]
+                newLight = newLight[0]
                 newWater = info[39].text.strip()
                 newWater = newWater.split('&')
                 newWater = newWater[0]
@@ -90,7 +90,7 @@ class Command(BaseCommand):
                 newCommon = info[16].text.strip()
                 newLight = info[35].text.strip()
                 newLight = newLight.split('(')
-                newLight = light[0]
+                newLight = newLight[0]
                 newWater = info[39].text.strip()
                 newWater = newWater.split('&')
                 newWater = newWater[0]
