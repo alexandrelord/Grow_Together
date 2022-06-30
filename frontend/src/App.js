@@ -1,18 +1,16 @@
 import './App.css';
-import { useState, useEffect} from 'react'
+// import { useState, useEffect} from 'react'
 import { Link } from 'react-router-dom'
-import { getUser } from './utilities/users-services'
+// import { getUser } from './utilities/users-services'
 import { logout } from './utilities/users-api';
 import AuthPage from './pages/AuthPage/AuthPage'
-import PlantList from './components/PlantList/PlantList'
+// import PlantList from './components/PlantList/PlantList'
 
 export default function App() {
-  // const [user, setUser] = useState(getUser())
 
   async function handleLogout(){
     try {
       const response = await logout()
-      // setUser(getUser())
     } catch (error) {
       console.log(error)
     }
@@ -21,14 +19,7 @@ export default function App() {
     return (
       <main className='App'>
         <AuthPage/>
-
-        {/* {user ? 
-        <div>
-        <h1>Logged in</h1>
-        <PlantList></PlantList>
-        <button onClick={handleLogout}>Logout</button>
-        </div>
-        :<AuthPage setUser={setUser}/>} */}
+        {/* <button onClick={handleLogout}>Logout</button> */}
       </main>
     )
   

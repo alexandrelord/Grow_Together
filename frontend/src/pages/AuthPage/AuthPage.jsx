@@ -7,8 +7,6 @@ import LoginForm from '../../components/Auth/LoginForm/LoginForm'
 export default function AuthPage() {
   const [showLogin, setShowLogin] = useState(true)
   
-    // having the handlesubmit function for both login and signup in here be DRYer?
-
     return (
         <main>
             <div className={style.titleContainer}>

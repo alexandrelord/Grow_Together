@@ -14,6 +14,9 @@ export default function LoginForm() {
     evt.preventDefault()
     try {
       const user = await login(credentials)
+      // if login successful remove credentials from state
+      setCredentials({username: '', password: ''})
+      // if login successful, redirect to "start matching" component
     } catch {
       setError('Log In Failed - Try again')
     }

@@ -14,8 +14,11 @@ export default function SignUpForm() {
     evt.preventDefault()
     try {
       const user = await signUp(credentials)
+      // if sign up successful remove credentials from state
+      setCredentials({username: '', email: '', password: '', confirm: ''})
+      // if sign up successful, redirect to "start matching" component
     } catch {
-      setError('Log In Failed - Try again')
+      setError('Sign Up Failed - Try again')
     }
   }
   
