@@ -7,27 +7,29 @@ import AuthPage from './pages/AuthPage/AuthPage'
 import PlantList from './components/PlantList/PlantList'
 
 export default function App() {
-  const [user, setUser] = useState(getUser())
+  // const [user, setUser] = useState(getUser())
 
   async function handleLogout(){
     try {
       const response = await logout()
-      setUser(getUser())
+      // setUser(getUser())
     } catch (error) {
       console.log(error)
     }
   }
 
     return (
-      <div className='App'>
-        {user ? 
+      <main className='App'>
+        <AuthPage/>
+
+        {/* {user ? 
         <div>
         <h1>Logged in</h1>
         <PlantList></PlantList>
         <button onClick={handleLogout}>Logout</button>
         </div>
-        :<AuthPage setUser={setUser}/>}
-      </div>
+        :<AuthPage setUser={setUser}/>} */}
+      </main>
     )
   
 
