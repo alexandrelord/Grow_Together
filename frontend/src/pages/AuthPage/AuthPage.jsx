@@ -4,22 +4,19 @@ import SignUpForm from '../../components/Auth/SignUpForm/SignUpForm'
 import LoginForm from '../../components/Auth/LoginForm/LoginForm'
 
 
-export default function AuthPage({ setUser }) {
+export default function AuthPage() {
   const [showLogin, setShowLogin] = useState(true)
   
     return (
         <main>
-            <div className={style.loginTitle}>
-                <p>Log in to Grow Together</p>
-                <div className={style.noAccount}>
-                    <p>Don't have an account?</p>
+            <div className={style.titleContainer}>
+                <p>{showLogin ? 'Login to Grow Together' : 'Sign Up to Grow Together'}</p>
+                <div className={style.account}>
+                    <p>{showLogin ? 'Don\'t have an account?' : 'Have an account?'}</p>
                     <p className={style.showLogin} onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</p>
                 </div>
             </div>
-            {/* <div>
-                <h3 onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</h3>
-            </div> */}
-                {showLogin ? <LoginForm setUser={setUser} /> : <SignUpForm setUser={setUser}/>}
+                {showLogin ? <LoginForm/> : <SignUpForm/>}
         </main>
     )
 

@@ -1,8 +1,7 @@
 import { useState } from 'react'
 import {login} from '../../../utilities/users-api'
-import style from './LoginForm.module.css'
 
-export default function LoginForm({ setUser }) {
+export default function LoginForm() {
   const [credentials, setCredentials] = useState({ username: '', password: ''})
   const [error, setError] = useState('')
   
@@ -15,7 +14,9 @@ export default function LoginForm({ setUser }) {
     evt.preventDefault()
     try {
       const user = await login(credentials)
-      setUser(user)
+      // if login successful remove credentials from state
+      setCredentials({username: '', password: ''})
+      // if login successful, redirect to "start matching" component
     } catch {
       setError('Log In Failed - Try again')
     }
@@ -23,19 +24,13 @@ export default function LoginForm({ setUser }) {
 
     return (
       <>
-      {/* <div className={style.loginTitle}>
-        <p>Log in to Grow Together</p>
-        <p className={style.noAccount}>Don't have an account?</p>
-      </div> */}
-
-        <div className={style.formContainer} onSubmit={handleSubmit}>
-          <form autoComplete="off" >
+          <form autoComplete="off" onSubmit={handleSubmit} >
             <input type="text" name="username" value={credentials.username} onChange={handleChange} placeholder='Username' required />
             <input type="password" name="password" value={credentials.password} onChange={handleChange} placeholder='Password' required />
             <button type="submit">LOG IN</button>
           </form>
-        </div>
-        <p className="error-message">&nbsp;{error}</p>
+        
+          <p>&nbsp;{error}</p>
       </>
     )
   

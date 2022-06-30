@@ -23,18 +23,20 @@ export function logout() {
 
 export async function obtainToken(credentials) {
     const token = await axiosInstance.post('/authentication/token/obtain/', credentials)
-    axiosInstance.defaults.headers['Authorization'] = `JWT ${token.data.access}`
-    localStorage.setItem('access_token', token.data.access)
-    localStorage.setItem('refresh_token', token.data.refresh)
+    setTokens(token)
 
     return JSON.parse(atob(token.data.access.split('.')[1])).user_id  
 }
 
 export async function refreshToken(refreshToken) {
     const token = await axiosInstance.post('/authentication/token/refresh/', refreshToken)
+    setTokens(token)
+
+    return token
+}
+
+function setTokens(token) {
     axiosInstance.defaults.headers['Authorization'] = `JWT ${token.data.access}`
     localStorage.setItem('access_token', token.data.access)
     localStorage.setItem('refresh_token', token.data.refresh)
-
-    return token
 }
