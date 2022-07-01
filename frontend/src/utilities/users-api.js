@@ -38,5 +38,5 @@ export async function refreshToken(refreshToken) {
 function setTokens(token) {
     axiosInstance.defaults.headers['Authorization'] = `JWT ${token.data.access}`
     localStorage.setItem('access_token', token.data.access)
-    localStorage.setItem('refresh_token', token.data.refresh)
+    // localStorage.setItem('refresh_token', token.data.refresh)
 }

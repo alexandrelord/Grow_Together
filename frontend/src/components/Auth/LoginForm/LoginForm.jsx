@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import {login} from '../../../utilities/users-api'
 import Button from '../../Reusables/Button/Button'
 
-export default function LoginForm() {
+export default function LoginForm({ setToken }) {
   const [credentials, setCredentials] = useState({ username: '', password: ''})
   const [error, setError] = useState('')
   let navigate = useNavigate()
