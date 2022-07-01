@@ -36,16 +36,3 @@ body {
     font-family: 'Open Sans';
     font-size: 15px;
   }
-
-  button {
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px 0;
-    border-radius: 30px;
-    border: none;
-    background-color: var(--medium-green);
-    font-size: 15px;
-    color: #fff;
-  }
