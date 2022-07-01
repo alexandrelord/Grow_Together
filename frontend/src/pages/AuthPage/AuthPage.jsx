@@ -10,10 +10,10 @@ export default function AuthPage() {
     return (
         <main>
             <div className={style.titleContainer}>
-                <p>{showLogin ? 'Login to Grow Together' : 'Sign Up to Grow Together'}</p>
+                <p>{showLogin ? 'Log In to Grow Together' : 'Sign Up to Grow Together'}</p>
                 <div className={style.account}>
                     <p>{showLogin ? 'Don\'t have an account?' : 'Have an account?'}</p>
-                    <p className={style.showLogin} onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</p>
+                    <p onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</p>
                 </div>
             </div>
                 {showLogin ? <LoginForm/> : <SignUpForm/>}

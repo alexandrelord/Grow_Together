@@ -9,22 +9,17 @@ body {
 }
 
 .titleContainer {
-    margin: 150px 0 0 20px;
+    margin: 150px 0 0 0;
     font-size: 20px;
   }
   
   .account {
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 12px;
-    /* letter-spacing: 0.45px; */
-  }
-
-  .showLogin {
-    margin-left: 10px;
+    gap: 10px;
   }
   
   form {
@@ -38,6 +33,7 @@ body {
     margin-bottom: 20px;
     border: none;
     border-bottom: 1px solid var(--dark-green);
+    font-family: 'Open Sans';
     font-size: 15px;
   }
 

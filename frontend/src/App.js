@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { logout } from './utilities/users-api';
 import AuthPage from './pages/AuthPage/AuthPage'
 // import PlantList from './components/PlantList/PlantList'
+import NavBar from './components/NavBar/NavBar';
 
 export default function App() {
 
@@ -18,6 +19,7 @@ export default function App() {
 
     return (
       <main className='App'>
+        <NavBar/>
         <AuthPage/>
         {/* <button onClick={handleLogout}>Logout</button> */}
       </main>
