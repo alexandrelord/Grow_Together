@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import * as plantsAPI from '../../utilities/plants-api'
+import * as plantsAPI from '../../../utilities/plants-api'
 
 export default function PlantList(props) {
   const [plants, setPlants] = useState([])
