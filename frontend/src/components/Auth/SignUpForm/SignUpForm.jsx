@@ -1,10 +1,15 @@
 import {  useRef, useState, useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
+import useAuth from '../../../hooks/useAuth'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 import { signUp } from '../../../utilities/users-api'
 import Button from '../../Reusables/Button/Button'
 
 
 export default function SignUpForm() {
+  const { setAuth } = useAuth()
+
+  const navigate = useNavigate()
+
   const usernameRef = useRef()
   const errRef = useRef()
   
@@ -29,8 +34,13 @@ export default function SignUpForm() {
 
       if (password !== confirm) {
         // setErrMsg("Passwords Don't Match")
-      } 
+      }
       const response = await signUp({username, email, password})
+      setAuth({username, password, response})
+      setUsername('')
+      setPassword('')
+      setEmail('')
+      navigate('/')
     } catch (error) {
       if(!error?.response) {
         setErrMsg('No Server Response')
