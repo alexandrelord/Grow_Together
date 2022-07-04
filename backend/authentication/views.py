@@ -1,38 +1,74 @@
-from rest_framework import status, permissions
+from rest_framework.authentication import get_authorization_header
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework.exceptions import APIException, AuthenticationFailed
 
-from .serializers import CustomUserSerializer
+from .authentication import create_access_token, create_refresh_token, decode_access_token, decode_refresh_token
+from .serializers import UserSerializer
+from .models import User
 
 
-# We need to specify an empty list or tuple for authentication_classes in addition
-# to setting permission_classes to convince DRF to open up a view to the public.
-
-class CustomUserCreate(APIView):
-    permission_classes = (permissions.AllowAny,)
-    authentication_classes = ()
-
-    def post(self, request, format='json'):
-        serializer = CustomUserSerializer(data=request.data)
-        if serializer.is_valid():
-            user = serializer.save()
-            if user:
-                json = serializer.data
-                return Response(json, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
-from rest_framework_simplejwt.tokens import RefreshToken
-
-class LogoutAndBlacklistRefreshTokenForUserView(APIView):
-    permission_classes = (permissions.AllowAny,)
-    authentication_classes = ()
-
+class RegisterAPIView(APIView):
     def post(self, request):
-        try:
-            refresh_token = request.data["refresh_token"]
-            token = RefreshToken(refresh_token)
-            token.blacklist()
-            return Response(status=status.HTTP_205_RESET_CONTENT)
-        except Exception as e:
-            return Response(status=status.HTTP_400_BAD_REQUEST)
+        serializer = UserSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
+
+
+class LoginAPIView(APIView):
+    def post(self, request):
+        user = User.objects.filter(username=request.data['username']).first()
+
+        if not user:
+            raise APIException('Invalid credentials!')
+
+        if not user.check_password(request.data['password']):
+            raise APIException('Invalid credentials!')
+
+        access_token = create_access_token(user.id)
+        refresh_token = create_refresh_token(user.id)
+
+        response = Response()
+
+        response.set_cookie(key='refreshToken', value=refresh_token, httponly=True)
+        response.data = {
+            'token': access_token
+        }
+
+        return response
+
+
+class UserAPIView(APIView):
+    def get(self, request):
+        auth = get_authorization_header(request).split()
+
+        if auth and len(auth) == 2:
+            token = auth[1].decode('utf-8')
+            id = decode_access_token(token)
+
+            user = User.objects.filter(pk=id).first()
+
+            return Response(UserSerializer(user).data)
+
+        raise AuthenticationFailed('unauthenticated')
+
+
+class RefreshAPIView(APIView):
+    def post(self, request):
+        refresh_token = request.COOKIES.get('refreshToken')
+        id = decode_refresh_token(refresh_token)
+        access_token = create_access_token(id)
+        return Response({
+            'token': access_token
+        })
+
+
+class LogoutAPIView(APIView):
+    def post(self, _):
+        response = Response()
+        response.delete_cookie(key="refreshToken")
+        response.data = {
+            'message': 'success'
+        }
+        return response
