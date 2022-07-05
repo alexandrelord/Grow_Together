@@ -6,6 +6,7 @@ import { logout } from './utilities/users-api';
 import AuthPage from './pages/AuthPage/AuthPage'
 // import PlantList from './components/PlantList/PlantList'
 
+
 export default function App() {
 
   async function handleLogout(){
