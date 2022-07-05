@@ -5,7 +5,7 @@ import {login} from '../../../utilities/users-api'
 import Button from '../../Reusables/Button/Button'
 
 export default function LoginForm() {
-  const { setAuth } = useAuth()
+  const { auth, setAuth } = useAuth()
 
   const navigate = useNavigate()
   const location = useLocation()
@@ -31,7 +31,7 @@ export default function LoginForm() {
 
     try {
       const response = await login({username, password})
-      setAuth({username, password, response})
+      setAuth({username, password, access: response})
       setUsername('')
       setPassword('')
       navigate(from, { replace: true })

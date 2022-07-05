@@ -1,19 +1,17 @@
-import axios from "axios"
-import { axiosPrivate }  from "../utilities/axios-instance"
-// import { getRefresh } from "../utilities/users-api"
+import axios from "../utilities/axios"
 import useAuth from './useAuth'
 
-export default function useRefresh() {
+export default function useRefresToken() {
     const { setAuth } = useAuth()
 
     const refresh = async () => {
-        const response = ''
-        // await getRefresh()
 
+        const response = await axios.post('/authentication/refresh/', {}, { withCredentials: true })
         setAuth(prev => {
-            return { ...prev, accessToken: response.data.access}
+            return { ...prev, access: response.data.token}
         })
-        return response.data.accessToken
+        
+        return response.data.token
     }
 
   return refresh

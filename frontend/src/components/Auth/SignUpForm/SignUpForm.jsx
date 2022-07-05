@@ -36,7 +36,8 @@ export default function SignUpForm() {
         // setErrMsg("Passwords Don't Match")
       }
       const response = await signUp({username, email, password})
-      setAuth({username, password, response})
+    
+      setAuth({username, password, access : response})
       setUsername('')
       setPassword('')
       setEmail('')

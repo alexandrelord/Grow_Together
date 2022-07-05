@@ -2,12 +2,10 @@ import axios from "axios"
 
 const BASE_URL = 'http://localhost:8000'
 
-export const axiosInstance = axios.create({
+export default axios.create({
     baseURL: BASE_URL,
     headers: {
-        // 'Authorization': "JWT " + localStorage.getItem('access_token'),
         'Content-Type': 'application/json',
-        // withCredentials: true  
     }
 });
 
@@ -15,7 +13,6 @@ export const axiosPrivate = axios.create({
     baseURL: BASE_URL,
     header: {
         'Content-Type': 'application/json',
-        withCredentials: true
     }
 })
 
