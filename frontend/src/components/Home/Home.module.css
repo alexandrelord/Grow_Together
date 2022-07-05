@@ -1,0 +1,37 @@
+.card {
+  height: 560px;
+  margin: 40px 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 0 #00000040;
+  background-color: #fff;
+}
+
+.image {
+  height: 310px;
+  margin: 0 0 20px;
+  padding: 240px 20px 20px 20px;
+  border-radius: 5px 5px 0 0;
+  background-image: linear-gradient(
+    to bottom,
+    #fff0 0%,
+    #fff0 50%,
+    #0000007d 75%,
+    #000 100%
+  );
+  background-size: cover;
+  background-position: center;
+}
+
+.image > p {
+  font-size: 16px;
+  color: white;
+}
+
+.addPhoto {
+  height: 150px;
+  margin: 20px 20px 20px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: dashed 1px black;
+}
