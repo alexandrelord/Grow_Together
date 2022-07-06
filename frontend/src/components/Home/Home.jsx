@@ -1,18 +1,43 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import style from "./Home.module.css";
 import Button from "../Reusables/Button/Button";
 import AuthContext from "../../context/AuthProvider";
 import useRefreshToken from "../../hooks/useRefreshToken";
 import axios from "axios";
 import S3 from "react-aws-s3";
+import { useNavigate } from "react-router-dom";
 window.Buffer = window.Buffer || require("buffer").Buffer;
 
 export default function Home() {
   // const { setAuth } = useContext(AuthContext)
   const [image, setImage] = useState("");
-  const [plant, setPlant] = useState(null);
+  const [plant, setPlant] = useState("");
   const [plantimg, setPlantImg] = useState(null);
   const [bestScore, setBestScore] = useState(null);
+
+const navigate =useNavigate();
+// function nav () {
+//     console.log(plant)
+//     navigate("/matches", {
+//     state: {
+//         plantimg: plantimg,
+//         bestScore: bestScore
+//     }
+// })
+
+    useEffect(() => {
+       if (plant) 
+       navigate("/matches", {
+        state: {
+            plant,
+            plantimg,
+            bestScore
+        }
+    })
+       
+      
+      }, [plant])
+
   const config = {
     bucketName: "grow-together",
     region: "us-west-1",
@@ -39,9 +64,9 @@ export default function Home() {
     setPlantImg(s3Url);
     let encodedURL = encodeURIComponent(s3Url);
     let url = api_url + api_key + "&images=" + encodedURL + "&" + organ_1;
-    axios.get(url).then((res) => {
+    await axios.get(url).then((res) => {
       let score = null;
-      setPlant(res.data.bestMatch);
+    setPlant(res.data.bestMatch);
       score = (res.data.results[0].score * 100).toFixed(2);
       if (score > 50) {
         setBestScore(score);
@@ -49,7 +74,7 @@ export default function Home() {
         setBestScore("Sorry, please upload another Image");
       }
     });
-  }
+     }
 
   return (
     //         <section>
@@ -68,9 +93,7 @@ export default function Home() {
         <form onSubmit={handleClick}>
           <label>Select File</label>
           <input onChange={handleChange} type="file" name="photo" />
-          <Button label="Upload" type="submit">
-            Submit
-          </Button>
+          <Button label="Upload" type="submit">Upload </Button>
         </form>
       </div>
       {plant ? <h2> Best Match: {plant}</h2> : null}

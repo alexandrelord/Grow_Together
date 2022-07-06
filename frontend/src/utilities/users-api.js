@@ -15,6 +15,7 @@ export async function signUp(credentials) {
 }
 
 export async function login(credentials) {
+
     const response = await axios.post(`${BASE_URL}/login/`, credentials)
     
     const accessToken = response?.data?.token
