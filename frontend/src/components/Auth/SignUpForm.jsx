@@ -1,6 +1,6 @@
 import {  useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signUp } from '../../utilities/users-api'
+import { signUp } from '../../api/authentication'
 import Button from '../Reusables/Button/Button'
 
 
