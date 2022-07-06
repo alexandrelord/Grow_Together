@@ -21,3 +21,8 @@ export async function login(credentials) {
     
     return accessToken
 }
+
+export async function logout() {
+    const response = await axios.post(`${BASE_URL}/logout/`, {}, {withCredentials: true})
+    // console.log(response)
+}
