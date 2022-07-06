@@ -15,10 +15,14 @@ export async function signUp(credentials) {
 }
 
 export async function login(credentials) {
-
-    const response = await axios.post(`${BASE_URL}/login/`, credentials)
+    const response = await axios.post(`${BASE_URL}/login/`, credentials, {withCredentials: true})
     
     const accessToken = response?.data?.token
     
     return accessToken
+}
+
+export async function logout() {
+    const response = await axios.post(`${BASE_URL}/logout/`, {}, {withCredentials: true})
+    // console.log(response)
 }

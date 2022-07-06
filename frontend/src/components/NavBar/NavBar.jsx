@@ -1,11 +1,13 @@
-import React from 'react'
+import { useState } from 'react'
 import style from './NavBar.module.css'
 
 export default function NavBar() {
+  const [menu, showMenu] = useState(false)
+  
   return (
     <nav>
         <div className={style.elements}>
-            <div className={style.hamburgerMenu}>
+            <div className={style.hamburgerMenu} onClick={() => showMenu(!menu) }>
                 <span className={style.dot}></span>
                 <span className={style.dot}></span>
                 <span className={style.dot}></span>
