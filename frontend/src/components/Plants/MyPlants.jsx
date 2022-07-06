@@ -5,7 +5,8 @@ export default function MyPlants() {
   
 return (
     <section>
-        <Link to='/'>Go Home</Link>
+      My Plants
+        {/* <Link to='/'>Go Home</Link> */}
     </section>
   )
 }

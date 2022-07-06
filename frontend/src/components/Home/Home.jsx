@@ -1,32 +1,26 @@
-import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { uploadToS3 } from '../../api/amazon-s3'
 import { plantIdentification } from '../../api/plantNet'
 
-import style from "./Home.module.css";
-import Button from "../Reusables/Button/Button";
+import style from './Home.module.css'
+import Button from '../Reusables/Button/Button'
 
 export default function Home() {
-  const [image, setImage] = useState("");
-  const [plant, setPlant] = useState("");
-  const [plantImg, setPlantImg] = useState(null);
-  const [bestScore, setBestScore] = useState(null);
+  const [image, setImage] = useState('')
+  const [plant, setPlant] = useState('')
+  const [plantImg, setPlantImg] = useState(null)
+  const [bestScore, setBestScore] = useState(null)
 
-  const navigate =useNavigate();
+  const navigate =useNavigate()
 
   useEffect(() => {
     if (plant) 
-      navigate("/matches", {
-        state: {
-            plant,
-            plantImg,
-            bestScore
-        }
-      })
+      navigate('/matches', {state: {plant, plantImg, bestScore}})
   }, [plant])
 
   async function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
 
     const s3URL = await uploadToS3(image)
     setPlantImg(s3URL)
@@ -34,18 +28,16 @@ export default function Home() {
     const plantId = await plantIdentification(s3URL)
     console.log(plantId)
 
+    setBestScore((plantId.results[0].score * 100).toFixed(2)) 
+    setPlant(plantId.bestMatch)
    
-    // await axios.get(url).then((res) => {
-    //   let score = null;
-    // setPlant(res.data.bestMatch);
-    //   score = (res.data.results[0].score * 100).toFixed(2);
     //   if (score > 50) {
     //     setBestScore(score);
     //   } else {
     //     setBestScore("Sorry, please upload another Image");
     //   }
-    // });
-     }
+
+  }
 
   return (
     <section className={style.card}>
@@ -55,13 +47,10 @@ export default function Home() {
       </div>
       <div className={style.addPhoto}>
         <form onSubmit={handleSubmit}>
-          <input type="file" name="photo" onChange={(e) => setImage(e.target.files[0])} />
-          <Button label="Upload" />
+          <input type='file' name='photo' onChange={(e) => setImage(e.target.files[0])} />
+          <Button label='Upload' />
         </form>
       </div>
-      {/* {plant ? <h2> Best Match: {plant}</h2> : null}
-      {plant ? <img src={plantImg} /> : null}
-      {bestScore ? <h2>Result: {bestScore} </h2> : null} */}
     </section>
-  );
+  )
 }
