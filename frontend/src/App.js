@@ -6,6 +6,7 @@ import Home from './components/Home/Home'
 import MyPlants from './components/Plants/MyPlants/MyPlants';
 import Missing from './components/Missing/Missing'
 import { Routes, Route } from 'react-router-dom'
+import PlantMatch from './pages/PlantMatch/PlantMatch';
 
 
 export default function App() {
@@ -21,6 +22,7 @@ export default function App() {
             <Route path='/' element={<Home />} />
             <Route path='myplants' element={<MyPlants />} />
           </Route>
+          <Route path='/matches' element={<PlantMatch/>}/>
           {/* catch all */}
           <Route path='*' element={<Missing />} />
           {/* <Route path='*' element={<Navigate to='/' replace />} /> */}
