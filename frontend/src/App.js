@@ -1,7 +1,7 @@
 import './App.css';
 import Layout from './components/Layout/Layout'
 import AuthPage from './pages/AuthPage/AuthPage'
-import RequireAuth from './components/Auth/RequireAuth/RequireAuth'
+import RequireAuth from './components/Auth/RequireAuth'
 import Home from './components/Home/Home'
 import MyPlants from './components/Plants/MyPlants/MyPlants';
 import Missing from './components/Missing/Missing'

@@ -1,7 +1,7 @@
 import {  useRef, useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { signUp } from '../../../utilities/users-api'
-import Button from '../../Reusables/Button/Button'
+import { signUp } from '../../utilities/users-api'
+import Button from '../Reusables/Button/Button'
 
 
 export default function SignUpForm() {
