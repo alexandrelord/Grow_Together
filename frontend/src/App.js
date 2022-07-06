@@ -1,12 +1,14 @@
 import './App.css';
+
 import Layout from './components/Layout/Layout'
 import AuthPage from './pages/AuthPage/AuthPage'
-import RequireAuth from './components/Auth/RequireAuth/RequireAuth'
+import RequireAuth from './components/Auth/RequireAuth'
 import Home from './components/Home/Home'
-import MyPlants from './components/Plants/MyPlants/MyPlants';
+import MyPlants from './components/Plants/MyPlants'
+import PlantMatch from './components/Plants/PlantMatch'
 import Missing from './components/Missing/Missing'
+
 import { Routes, Route } from 'react-router-dom'
-import PlantMatch from './pages/PlantMatch/PlantMatch';
 
 
 export default function App() {
@@ -21,8 +23,8 @@ export default function App() {
           <Route element={<RequireAuth />}>
             <Route path='/' element={<Home />} />
             <Route path='myplants' element={<MyPlants />} />
+            <Route path='matches' element={<PlantMatch />}/>
           </Route>
-          <Route path='/matches' element={<PlantMatch/>}/>
           {/* catch all */}
           <Route path='*' element={<Missing />} />
           {/* <Route path='*' element={<Navigate to='/' replace />} /> */}

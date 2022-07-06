@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import style from './AuthPage.module.css'
-import SignUpForm from '../../components/Auth/SignUpForm/SignUpForm'
-import LoginForm from '../../components/Auth/LoginForm/LoginForm'
+import SignUpForm from '../../components/Auth/SignUpForm'
+import LoginForm from '../../components/Auth/LoginForm'
 
 
 export default function AuthPage({ setToken }) {
