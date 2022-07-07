@@ -40,17 +40,16 @@ export default function Home() {
   }
 
   return (
-    <section className={style.card}>
+    <section>
       <div className={style.image}>
-        <p>Looking for a plant to match yours?</p>
-        <p>Take a photo and find a match!</p>
+        <p>Looking for a plant to match yours? <br />
+            Take a photo and find a match!
+        </p>
       </div>
-      <div className={style.addPhoto}>
-        <form onSubmit={handleSubmit}>
-          <input type='file' name='photo' onChange={(e) => setImage(e.target.files[0])} />
-          <Button label='Upload' />
-        </form>
-      </div>
+      <form onSubmit={handleSubmit}>
+        <input type='file' name='photo' onChange={(e) => setImage(e.target.files[0])} />
+        <Button label='Upload' />
+      </form>
     </section>
   )
 }
