@@ -3,12 +3,12 @@ import { Link } from 'react-router-dom'
 import style from './NavBar.module.css'
 
 export default function NavBar() {
-  const [menu, showMenu] = useState('offscreen')
+  const [menu, showMenu] = useState(false)
   
   return (
     <>
       <nav>
-          <div className={style.elements}>
+          <div className={style.container}>
               <div className={style.hamburgerMenu} onClick={() => showMenu(!menu) }>
                   <span className={style.dot}></span>
                   <span className={style.dot}></span>
@@ -20,9 +20,10 @@ export default function NavBar() {
               </div>
           </div>
       </nav>
-      <aside className={style.offscreen}>
+      <aside className={menu ? style.active : style.offscreen} onClick={() => showMenu(!menu) }>
         <Link to='/'>Home</Link>
         <Link to='myplants'>My Plants</Link>
+        <Link to='logout'>Logout</Link>
       </aside>
     </>
   )
