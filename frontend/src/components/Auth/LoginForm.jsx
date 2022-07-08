@@ -31,7 +31,7 @@ export default function LoginForm() {
 
     try {
       const response = await login({username, password})
-      setAuth({username, password, access: response})
+      setAuth({ username, accessToken: response })
       setUsername('')
       setPassword('')
       navigate(from, { replace: true })

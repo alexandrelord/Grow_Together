@@ -4,7 +4,7 @@ import SignUpForm from '../../components/Auth/SignUpForm'
 import LoginForm from '../../components/Auth/LoginForm'
 
 
-export default function AuthPage({ setToken }) {
+export default function AuthPage() {
   const [showLogin, setShowLogin] = useState(true)
   
     return (
@@ -16,7 +16,7 @@ export default function AuthPage({ setToken }) {
                     <p onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</p>
                 </div>
             </div>
-                {showLogin ? <LoginForm setToken={ setToken }/> : <SignUpForm setToken={ setToken } />}
+                {showLogin ? <LoginForm /> : <SignUpForm />}
         </main>
     )
 

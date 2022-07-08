@@ -7,6 +7,7 @@ import Home from './components/Home/Home'
 import MyPlants from './components/Plants/MyPlants'
 import PlantMatch from './components/Plants/PlantMatch'
 import Missing from './components/Missing/Missing'
+import PersistLogin from './components/PersistLogin';
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -19,12 +20,14 @@ export default function App() {
         <Route path='login' element={<AuthPage />} />
 
         <Route path='/' element={<Layout />}>
-          {/* private routes */}
-          <Route element={<RequireAuth />}>
-            <Route path='/' element={<Home />} />
-            <Route path='myplants' element={<MyPlants />} />
-            <Route path='matches' element={<PlantMatch />}/>
-          </Route>
+            <Route element={<PersistLogin />}>
+            {/* private routes */}
+              <Route element={<RequireAuth />}>
+                <Route path='/' element={<Home />} />
+                <Route path='myplants' element={<MyPlants />} />
+                <Route path='matches' element={<PlantMatch />}/>
+              </Route>
+            </Route>
           {/* catch all */}
           <Route path='*' element={<Missing />} />
           {/* <Route path='*' element={<Navigate to='/' replace />} /> */}
