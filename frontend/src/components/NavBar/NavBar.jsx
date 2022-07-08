@@ -1,10 +1,29 @@
 import { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
+import { logout } from '../../api/authentication'
+import useAuth from '../../hooks/useAuth'
 import style from './NavBar.module.css'
 
 export default function NavBar() {
+  const { setAuth } = useAuth()
+  const navigate = useNavigate()
+  
   const [menu, showMenu] = useState(false)
   
+  const handleClick = async (e) => {
+    e.preventDefault()
+
+    try {
+      const response = await logout()
+      if (response === 'success') {
+        setAuth({})
+        navigate('/login')
+      }
+    } catch (error) {
+      console.error(error)
+    } 
+  }
+
   return (
     <>
       <nav>
@@ -23,7 +42,7 @@ export default function NavBar() {
       <aside className={menu ? style.active : style.offscreen} onClick={() => showMenu(!menu) }>
         <Link to='/'>Home</Link>
         <Link to='myplants'>My Plants</Link>
-        <Link to='logout'>Logout</Link>
+        <Link to='/login' onClick={handleClick}>Logout</Link>
       </aside>
     </>
   )

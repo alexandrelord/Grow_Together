@@ -24,5 +24,5 @@ export async function login(credentials) {
 
 export async function logout() {
     const response = await axios.post(`${BASE_URL}/logout/`, {}, {withCredentials: true})
-    // console.log(response)
+    return response?.data?.message
 }
