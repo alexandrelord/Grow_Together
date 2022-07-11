@@ -9,7 +9,7 @@ from .models import Plant
 from authentication import authentication
 
 
-class UserAPIView(APIView):
+class PlantsAPIView(APIView):
     def get(self, request):
         auth = get_authorization_header(request).split()
 
