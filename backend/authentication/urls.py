@@ -3,7 +3,7 @@ from .views import RegisterAPIView, LoginAPIView, UserAPIView, RefreshAPIView, L
 
 
 urlpatterns = [
-    path('register/', RegisterAPIView.as_view(), name="create_user"),
+    path('register/', RegisterAPIView.as_view()),
     path('login/', LoginAPIView.as_view()),
     path('user/', UserAPIView.as_view()),
     path('refresh/', RefreshAPIView.as_view()),

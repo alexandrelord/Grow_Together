@@ -1,31 +1,27 @@
 import { useState, useEffect } from 'react'
+import { useLocation, useNavigate } from 'react-router-dom'
 import useAxiosPrivate from '../../hooks/useAxiosPrivate'
 
 export default function MyPlants() {
-  const [plants, setPlants]  = useState()
+  const [plants, setPlants] = useState()
   const axiosPrivate = useAxiosPrivate()
+  const navigate = useNavigate()
+  const location = useLocation()
   
 
   useEffect(() => {
-    let isMounted = true
-    const controller = new AbortController()
 
     const getPlants = async () => {
       try {
-        const response = await axiosPrivate.get('/authentication/user/')
-        console.log(response.data)
-        isMounted && setPlants(response.data)
+        const response = await axiosPrivate.get('/api/plants/')
+        setPlants(response.data)
       } catch (error) {
         console.error(error)
+        navigate('/login', { state: { from: location }, replace: true })
       }
     }
 
     getPlants()
-
-    return () => {
-      isMounted = false
-      controller.abort()
-    }
 
   }, [])
 
@@ -34,7 +30,7 @@ export default function MyPlants() {
       {plants?.length
       ? (
         <ul>
-          {plants.map((plant, id) => <li key={id}>{plant?.username}</li>)}
+          {plants.map((plant, id) => <li key={id}>{plant?.scientific_name}</li>)}
         </ul>
       ) : <p>No plants</p>
       }
