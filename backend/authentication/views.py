@@ -47,9 +47,11 @@ class UserAPIView(APIView):
             token = auth[1].decode('utf-8')
             id = decode_access_token(token)
 
-            user = User.objects.filter(pk=id).first()
+            # user = User.objects.filter(pk=id).first()
+            users = User.objects.all()
+            serializer = UserSerializer(users, many=True)
 
-            return Response(UserSerializer(user).data)
+            return Response(serializer.data)
 
         raise AuthenticationFailed('unauthenticated')
 

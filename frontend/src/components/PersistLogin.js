@@ -21,7 +21,7 @@ useEffect(() => {
         }
     }
 
-    !auth?.accessToken ? verifyRefreshToken() : setIsLoading(false)
+    !auth?.token ? verifyRefreshToken() : setIsLoading(false)
 
 }, [])
 
