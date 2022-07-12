@@ -2,14 +2,15 @@ from rest_framework.authentication import get_authorization_header
 from rest_framework.views import APIView
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.response import Response
+
 # from rest_framework.decorators import api_view
 # from rest_framework import status
+
 from .serializers import PlantSerializer
 from .models import Plant
 from authentication import authentication, models
 
 from api import serializers
-
 
 class PlantsAPIView(APIView):
     def get(self, request):
@@ -23,6 +24,7 @@ class PlantsAPIView(APIView):
             serializer = PlantSerializer(plants, many=True)
             
             return Response(serializer.data)
+
         
         raise AuthenticationFailed('unauthenticated')
 
