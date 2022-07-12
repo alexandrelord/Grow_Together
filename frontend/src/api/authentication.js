@@ -4,12 +4,11 @@ const BASE_URL = '/authentication'
 
 export async function signUp(credentials) {
     const response = await axios.post(`${BASE_URL}/register/`, credentials)
-    console.log(response)
     
     if (response.status === 200) {
-        const accessToken = login(credentials)
-        console.log(accessToken)
-        return accessToken
+        const token = login(credentials)
+
+        return token
     }
     return response
 }
@@ -17,12 +16,12 @@ export async function signUp(credentials) {
 export async function login(credentials) {
     const response = await axios.post(`${BASE_URL}/login/`, credentials, {withCredentials: true})
     
-    const accessToken = response?.data?.token
+    const token = response?.data?.token
     
-    return accessToken
+    return token
 }
 
 export async function logout() {
     const response = await axios.post(`${BASE_URL}/logout/`, {}, {withCredentials: true})
-    // console.log(response)
+    return response?.data?.message
 }

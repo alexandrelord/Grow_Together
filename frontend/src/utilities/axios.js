@@ -11,9 +11,8 @@ export default axios.create({
 
 export const axiosPrivate = axios.create({
     baseURL: BASE_URL,
-    header: {
-        'Content-Type': 'application/json',
-    }
+    header: {'Content-Type': 'application/json'},
+    withCredentials: true
 })
 
 // creating an instance => https://github.com/axios/axios?ref=hackernoon.com#creating-an-instance

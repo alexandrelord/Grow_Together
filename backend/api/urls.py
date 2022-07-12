@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import PlantsAPIView
+
+from .views import PlantsAPIView, DeletePlant
 
 urlpatterns = [
     path('plants/', PlantsAPIView.as_view()),
-    # path('plants/<int:id>', views.plant_detail),
+    path('plants/delete/', DeletePlant.as_view()),
 ]

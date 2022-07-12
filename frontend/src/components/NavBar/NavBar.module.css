@@ -8,7 +8,7 @@ nav {
   background-color: var(--light-green);
 }
 
-.elements {
+nav .container {
   width: 90%;
   display: flex;
   align-items: center;
@@ -21,7 +21,7 @@ nav {
   border-radius: 50%;
   margin: 5px auto;
   -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   background-color: var(--dark-green);
 }
 
@@ -30,6 +30,7 @@ nav {
   margin: 0 auto;
   gap: 5px;
   color: var(--medium-dark-green);
+  font-size: 1.6rem;
 }
 
 .logo {
@@ -41,17 +42,31 @@ nav {
   background-repeat: no-repeat;
 }
 
-aside .offscreen {
+aside {
   position: fixed;
-  left: -100%;
+  z-index: 2;
   top: 50px;
-  flex-direction: column;
-  background-color: var(--light-green);
   width: 100%;
   height: 100%;
-  transition: 0.3s;
+  background-color: var(--light-green);
+  transition: 0.4s;
+  font-size: 1.6rem;
 }
 
-aside .active {
+.offscreen {
+  left: -100%;
+}
+
+.active {
   left: 0;
+}
+
+a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--dark-green);
+}
+
+a:hover {
+  color: var(--medium-green);
 }
