@@ -6,7 +6,9 @@ from rest_framework.response import Response
 # from rest_framework import status
 from .serializers import PlantSerializer
 from .models import Plant
-from authentication import authentication
+from authentication import authentication, models
+
+from api import serializers
 
 
 class PlantsAPIView(APIView):
@@ -19,8 +21,25 @@ class PlantsAPIView(APIView):
 
             plants = Plant.objects.all()
             serializer = PlantSerializer(plants, many=True)
-
+            
             return Response(serializer.data)
+        
+        raise AuthenticationFailed('unauthenticated')
+
+
+class DeletePlant(APIView):
+    def post(self, request):
+        auth = get_authorization_header(request).split()
+
+        if auth and len(auth) == 2:
+            token = auth[1].decode('utf-8')
+            id = authentication.decode_access_token(token)
+
+            plant_id = request.data['plantId']
+
+            Plant.objects.get(id=plant_id).delete()
+
+            return Response('deleted')
 
         raise AuthenticationFailed('unauthenticated')
 
