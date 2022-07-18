@@ -4,7 +4,7 @@ import { uploadToS3 } from '../../api/amazon-s3'
 import { plantIdentification } from '../../api/plantNet'
 
 import style from './Home.module.css'
-import Button from '../Reusables/Button/Button'
+import Button from '../Button'
 
 export default function Home() {
   const [image, setImage] = useState('')

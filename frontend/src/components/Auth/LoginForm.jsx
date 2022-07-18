@@ -2,7 +2,7 @@ import { useRef, useState, useEffect } from 'react'
 import useAuth from '../../hooks/useAuth'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {login} from '../../api/authentication'
-import Button from '../Reusables/Button/Button'
+import Button from '../Button'
 
 export default function LoginForm() {
   const { auth, setAuth } = useAuth()
