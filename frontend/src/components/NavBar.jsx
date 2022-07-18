@@ -13,8 +13,8 @@ import Toolbar from '@mui/material/Toolbar'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import { Link, useNavigate } from 'react-router-dom'
-import { logout } from '../../api/authentication'
-import useAuth from '../../hooks/useAuth'
+import { logout } from '../api/authentication'
+import useAuth from '../hooks/useAuth'
 
 
 const drawerWidth = 240

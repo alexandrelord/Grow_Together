@@ -1,6 +1,6 @@
 import './App.css';
 import { createTheme, ThemeProvider  } from '@mui/material';
-import Layout from './components/Layout/Layout'
+import Layout from './components/Layout'
 import AuthPage from './pages/AuthPage/AuthPage'
 import RequireAuth from './components/Auth/RequireAuth'
 import Home from './components/Home/Home'
