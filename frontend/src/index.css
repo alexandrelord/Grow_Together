@@ -4,15 +4,15 @@
   padding: 0;
 }
 
-:root {
-  /* color palette */
+/* :root {
+  
   --light-green: #e9f0e8;
   --medium-green: #67a16e;
   --medium-dark-green: #507654;
   --dark-green: #053f0c;
 
   font-size: 10px;
-}
+} */
 
 body {
   margin: 0;

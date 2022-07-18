@@ -1,6 +1,6 @@
 import './App.css';
-
-import Layout from './components/Layout/Layout'
+import { createTheme, ThemeProvider  } from '@mui/material';
+import Layout from './components/Layout'
 import AuthPage from './pages/AuthPage/AuthPage'
 import RequireAuth from './components/Auth/RequireAuth'
 import Home from './components/Home/Home'
@@ -11,10 +11,25 @@ import PersistLogin from './components/PersistLogin';
 
 import { Routes, Route } from 'react-router-dom'
 
+const theme = createTheme({
+  palette: {
+    custom: {
+      light: '#e9f0e8',
+      mediumLight: '#507654',
+      medium: '#67a16e',
+      dark: '#053f0c'
+    } 
+  },
+  typography: {
+    fontFamily: 'Open Sans'
+  }
+})
+
 
 export default function App() {
  
   return (
+    <ThemeProvider theme={theme}>
       <Routes>
         {/* public routes */}
         <Route path='login' element={<AuthPage />} />
@@ -33,6 +48,7 @@ export default function App() {
           {/* <Route path='*' element={<Navigate to='/' replace />} /> */}
         </Route>
       </Routes>
+    </ThemeProvider>
     )
   
 
