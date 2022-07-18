@@ -30,13 +30,6 @@ export default function Home() {
 
     setBestScore((plantId.results[0].score * 100).toFixed(2)) 
     setPlant(plantId.bestMatch)
-   
-    //   if (score > 50) {
-    //     setBestScore(score);
-    //   } else {
-    //     setBestScore("Sorry, please upload another Image");
-    //   }
-
   }
 
   return (

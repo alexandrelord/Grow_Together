@@ -1,8 +1,11 @@
-import { useRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import useAuth from '../../hooks/useAuth'
 import { useNavigate, useLocation } from 'react-router-dom'
 import {login} from '../../api/authentication'
 import Button from '../Button'
+import TextField from '@mui/material/TextField'
+import Stack from '@mui/material/Stack'
+import Box from '@mui/material/Box'
 
 export default function LoginForm() {
   const { auth, setAuth } = useAuth()
@@ -11,15 +14,10 @@ export default function LoginForm() {
   const location = useLocation()
   const from = location.state?.from?.pathname || '/'
 
-  const usernameRef = useRef()
-
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
   const [errMsg, setErrMsg] = useState('')
 
-  useEffect(() => {
-    usernameRef.current.focus()
-  }, [])
 
   useEffect(() => {
     setErrMsg('')
@@ -52,26 +50,34 @@ export default function LoginForm() {
   
   return (
 
-    <section>
-      <form autoComplete="off" onSubmit={handleSubmit} >
-        <input 
-        type="text" 
-        placeholder='Username'
-        ref={usernameRef} 
-        onChange={(e) => setUsername(e.target.value)}  
-        value={username} 
-        required 
-        />
-        <input 
-        type="password" 
-        placeholder='Password'
-        onChange={(e) => setPassword(e.target.value)}  
-        value={password} 
-        required 
-        />
-        <Button label='Log In' />
-      </form>
-      <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-    </section>
+      <Box sx={{ marginTop: '50px' }}>
+        <Stack 
+          component='form'
+          sx={{ width: '320px' }}
+          spacing={2}
+          autoComplete="off" 
+          onSubmit={handleSubmit} 
+        >
+          <TextField
+          variant='standard' 
+          type="text" 
+          placeholder='Username'
+          onChange={(e) => setUsername(e.target.value)}  
+          value={username}
+          autoFocus
+          required 
+          />
+          <TextField 
+          variant='standard'
+          type="password" 
+          placeholder='Password'
+          onChange={(e) => setPassword(e.target.value)}  
+          value={password} 
+          required 
+          />
+          <Button label='Log In' />
+        </Stack>
+        <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
+      </Box>
   )
 }
