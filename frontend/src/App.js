@@ -15,8 +15,8 @@ const theme = createTheme({
   palette: {
     custom: {
       light: '#e9f0e8',
-      mediumLight: '#507654',
       medium: '#67a16e',
+      mediumDark: '#507654',
       dark: '#053f0c'
     } 
   },
