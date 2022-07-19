@@ -6,12 +6,6 @@
   background-image: url("../../assets/images/plants.png");
   background-size: cover;
   background-position: center;
+  text-align: center;
 }
 
-.image > p {
-  position: absolute;
-  bottom: 15px;
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: whitesmoke;
-}
