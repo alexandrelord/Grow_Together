@@ -6,7 +6,7 @@ import Container from '@mui/material/Container'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
-import Card from '../Card'
+import MyPlantsCard from './MyPlantsCard'
 
 
 export default function MyPlants() {
@@ -57,8 +57,8 @@ export default function MyPlants() {
         <Box sx={{ marginTop: 15 }}>
           <Paper sx={{ height: 375, p: 2.5, bgcolor: 'custom.medium' }}>
             <Stack spacing={2}>
-              <Card delete={handleDelete}/>
-              <Card delete={handleDelete}/>  
+              <MyPlantsCard delete={handleDelete}/>
+              <MyPlantsCard delete={handleDelete}/>  
             </Stack>  
           </Paper>   
         </Box>
