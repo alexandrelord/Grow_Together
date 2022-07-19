@@ -5,7 +5,8 @@ import AuthPage from './pages/AuthPage/AuthPage'
 import RequireAuth from './components/Auth/RequireAuth'
 import Home from './components/Home/Home'
 import MyPlants from './components/Plants/MyPlants'
-import PlantMatch from './components/Plants/PlantMatch'
+import Matches from './components/Plants/Matches'
+import BestMatch from './components/Plants/BestMatch';
 import Missing from './components/Missing/Missing'
 import PersistLogin from './components/PersistLogin';
 
@@ -40,7 +41,8 @@ export default function App() {
               <Route element={<RequireAuth />}>
                 <Route path='/' element={<Home />} />
                 <Route path='myplants' element={<MyPlants />} />
-                <Route path='matches' element={<PlantMatch />}/>
+                <Route path='bestmatch' element={<BestMatch />}/>
+                <Route path='matches' element={<Matches />}/>
               </Route>
             </Route>
           {/* catch all */}
