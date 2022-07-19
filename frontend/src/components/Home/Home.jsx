@@ -21,12 +21,12 @@ export default function Home() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
     const s3URL = await uploadToS3(image)
     setPlantImg(s3URL)
 
     const plantId = await plantIdentification(s3URL)
-    console.log(plantId)
+
+
 
     setBestScore((plantId.results[0].score * 100).toFixed(2)) 
     setPlant(plantId.bestMatch)
