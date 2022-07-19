@@ -44,11 +44,11 @@ export default function MatchCard() {
                     </Box> 
                 </Stack>
             </Box>
-            <Box sx={{ mt: 6, display: 'flex', justifyContent: 'space-around' }}>
-                <IconButton sx={{ bgcolor: 'custom.medium' }}>
+            <Box sx={{ mt: 6, display: 'flex', justifyContent: 'space-around' }} >
+                <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
                     <ClearIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
-                <IconButton sx={{ bgcolor: 'custom.medium' }}>
+                <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
                     <FavoriteBorderOutlinedIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
             </Box> 
