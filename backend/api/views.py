@@ -20,9 +20,15 @@ class PlantsAPIView(APIView):
             serializer = PlantSerializer(plants, many=True)
             
             return Response(serializer.data)
-
         
         raise AuthenticationFailed('unauthenticated')
+
+class BestMatch(APIView):
+    def post(self, request):
+        plant_first_name = request.data['scientificName'].split()[:1]
+        plant = Plant.objects.filter(scientific_name__contains=plant_first_name[0]).first()
+        serializer = PlantSerializer(plant)
+        return Response(serializer.data)
 
 
 class DeletePlant(APIView):
@@ -40,6 +46,8 @@ class DeletePlant(APIView):
             return Response('deleted')
 
         raise AuthenticationFailed('unauthenticated')
+
+
 
 
     
