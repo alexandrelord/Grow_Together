@@ -2,6 +2,13 @@ import { useState, useEffect } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import useAxiosPrivate from '../../hooks/useAxiosPrivate'
 
+import Container from '@mui/material/Container'
+import Box from '@mui/material/Box'
+import Paper from '@mui/material/Paper'
+import Stack from '@mui/material/Stack'
+import Card from '../Card'
+
+
 export default function MyPlants() {
   const [plants, setPlants] = useState()
   const axiosPrivate = useAxiosPrivate()
@@ -28,29 +35,49 @@ export default function MyPlants() {
 
   const handleDelete = async (e) => {
     e.preventDefault()
-    console.log(e.target.id)
-    try {
-      const response = await axiosPrivate.post('api/plants/delete/', {'plantId': e.target.id})
-      console.log(response)
-    } catch (error) {
+    console.log('Delete')
+    // console.log(e.target.id)
+    // try {
+    //   const response = await axiosPrivate.post('api/plants/delete/', {'plantId': e.target.id})
+    //   console.log(response)
+    // } catch (error) {
       
-    }
+    // }
   }
 
+  // const plantList = plants.map((plant, id) => (
+  //   <Card>
+
+  //   </Card>
+  // ))
+
   return (
-    <section>
-      {plants?.length
-      ? (
-        <ul>
-          {plants.map((plant, id) => 
-          <li key={id}>
-            {plant?.scientific_name}
-            <button id={plant.id} onClick={handleDelete}>Delete</button>
-          </li>)}
-        </ul>
-      ) : <p>No plants</p>
-      }
-    </section>
+
+      <Container maxWidth='xs' >
+        <Box sx={{ marginTop: 15 }}>
+          <Paper sx={{ height: 375, p: 2.5, bgcolor: 'custom.medium' }}>
+            <Stack spacing={2}>
+              <Card delete={handleDelete}/>
+              <Card delete={handleDelete}/>  
+            </Stack>  
+          </Paper>   
+        </Box>
+      </Container>
+    
+
+    // <Box sx={{ marginY: 20 }}>
+    //   {plants?.length
+    //   ? (
+    //     <ul>
+    //       {plants.map((plant, id) => 
+    //       <li key={id}>
+    //         {plant?.scientific_name}
+    //         <button id={plant.id} onClick={handleDelete}>Delete</button>
+    //       </li>)}
+    //     </ul>
+    //   ) : <p>No plants</p>
+    //   }
+    // </Box>
   )
 }
 

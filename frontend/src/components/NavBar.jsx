@@ -95,7 +95,6 @@ export default function NavBar(props) {
               <Button sx={{ color: 'white' }} component={Link} to='/login' onClick={handleClick} disableRipple>
                 Logout
               </Button>
-        
           </Box>
         </Toolbar>
       </AppBar>

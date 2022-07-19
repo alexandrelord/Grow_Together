@@ -3,8 +3,14 @@ import { useNavigate } from 'react-router-dom'
 import { uploadToS3 } from '../../api/amazon-s3'
 import { plantIdentification } from '../../api/plantNet'
 
+import Stack from '@mui/material/Stack'
+import Box from '@mui/material/Box'
+import IconButton from '@mui/material/IconButton'
+import PhotoCamera from '@mui/icons-material/PhotoCamera'
+import Button from '../Button'
+import Typography from '@mui/material/Typography'
 import style from './Home.module.css'
-import Button from '../Reusables/Button/Button'
+
 
 export default function Home() {
   const [image, setImage] = useState('')
@@ -30,26 +36,31 @@ export default function Home() {
 
     setBestScore((plantId.results[0].score * 100).toFixed(2)) 
     setPlant(plantId.bestMatch)
-   
-    //   if (score > 50) {
-    //     setBestScore(score);
-    //   } else {
-    //     setBestScore("Sorry, please upload another Image");
-    //   }
-
   }
 
   return (
-    <section>
-      <div className={style.image}>
-        <p>Looking for a plant to match yours? <br />
-            Take a photo and find a match!
-        </p>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <input type='file' name='photo' onChange={(e) => setImage(e.target.files[0])} />
-        <Button label='Upload' />
-      </form>
-    </section>
+    <>
+      <Box className={style.image}>
+        <Box sx={{ position: 'absolute', bottom: '15px', color: 'white' }}>
+          <Typography>Looking for a plant to match yours? </Typography>
+          <Typography>Take a photo and find a match!</Typography>
+        </Box>
+      </Box>
+      <Stack
+        component='form'
+        sx={{ width: '320px', marginX: 'auto', marginTop: 2 }}
+        spacing={2}
+        onSubmit={handleSubmit}
+        
+      >
+        <Box sx={{ border: '1px dashed black', textAlign: 'center'}}>
+          <IconButton component='label' >
+            <input hidden type='file' name='photo' onChange={(e) => setImage(e.target.files[0])} />
+            <PhotoCamera />
+          </IconButton>
+        </Box>
+        <Button variant='contained' label='Send' />
+      </Stack>
+    </>
   )
 }

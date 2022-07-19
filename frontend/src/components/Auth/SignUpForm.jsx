@@ -1,24 +1,19 @@
-import {  useRef, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { signUp } from '../../api/authentication'
-import Button from '../Reusables/Button/Button'
-
+import Button from '../Button'
+import TextField from '@mui/material/TextField'
+import Box from '@mui/material/Box'
+import Stack from '@mui/material/Stack'
 
 export default function SignUpForm() {
-
   const navigate = useNavigate()
-
-  const usernameRef = useRef()
   
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [errMsg, setErrMsg] = useState('')
-
-  useEffect(() => {
-    usernameRef.current.focus()
-  }, [])
 
   useEffect(() => {
     setErrMsg('')
@@ -51,31 +46,40 @@ export default function SignUpForm() {
   }
 
   return (
-    <section>
-      <form autoComplete="off" onSubmit={handleSubmit}>
-         <input 
+    <Box sx={{ marginTop: '50px' }}>
+      <Stack 
+        component='form'
+        sx={{ width: '320px' }}
+        spacing={2}
+        autoComplete="off" 
+        onSubmit={handleSubmit}
+      >
+         <TextField
+          variant='standard' 
           type="text"
           placeholder='Username'
-          ref={usernameRef} 
           onChange={(e) => setUsername(e.target.value)} 
           value={username}
           required 
          />
-         <input 
+         <TextField
+          variant='standard'  
           type="email"
           placeholder='Email'
           onChange={(e) => setEmail(e.target.value)} 
           value={email}
           required 
          />
-         <input 
+         <TextField
+          variant='standard' 
           type="password"
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)} 
           value={password}
           required 
          />
-        <input 
+        <TextField
+          variant='standard' 
           type="password"
           placeholder='Confirm Password'
           onChange={(e) => setConfirm(e.target.value)} 
@@ -83,9 +87,9 @@ export default function SignUpForm() {
           required 
          />
          <Button label='Sign Up'/>
-       </form>
+       </Stack>
       
       <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
-    </section>
+    </Box>
   )
 }

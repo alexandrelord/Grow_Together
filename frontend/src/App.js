@@ -5,7 +5,8 @@ import AuthPage from './pages/AuthPage/AuthPage'
 import RequireAuth from './components/Auth/RequireAuth'
 import Home from './components/Home/Home'
 import MyPlants from './components/Plants/MyPlants'
-import PlantMatch from './components/Plants/PlantMatch'
+import Matches from './components/Plants/Matches'
+import BestMatch from './components/Plants/BestMatch';
 import Missing from './components/Missing/Missing'
 import PersistLogin from './components/PersistLogin';
 
@@ -15,8 +16,8 @@ const theme = createTheme({
   palette: {
     custom: {
       light: '#e9f0e8',
-      mediumLight: '#507654',
       medium: '#67a16e',
+      mediumDark: '#507654',
       dark: '#053f0c'
     } 
   },
@@ -40,7 +41,8 @@ export default function App() {
               <Route element={<RequireAuth />}>
                 <Route path='/' element={<Home />} />
                 <Route path='myplants' element={<MyPlants />} />
-                <Route path='matches' element={<PlantMatch />}/>
+                <Route path='bestmatch' element={<BestMatch />}/>
+                <Route path='matches' element={<Matches />}/>
               </Route>
             </Route>
           {/* catch all */}
