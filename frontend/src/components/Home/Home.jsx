@@ -15,7 +15,7 @@ import useAxiosPrivate from '../../hooks/useAxiosPrivate'
 
 export default function Home() {
   const [image, setImage] = useState('')
-  const [plant, setPlant] = useState('')
+  const [plant, setPlant] = useState()
   const [bestScore, setBestScore] = useState(null)
 
   const axiosPrivate = useAxiosPrivate()
@@ -38,7 +38,7 @@ export default function Home() {
 
     try {
       const response = await axiosPrivate.post('/api/bestmatch/', { scientificName: plantId.bestMatch })
-      setPlant(response)
+      setPlant(response.data)
     } catch (error) {
       console.log(error)
     }
