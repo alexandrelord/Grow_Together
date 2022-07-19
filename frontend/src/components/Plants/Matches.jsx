@@ -1,4 +1,5 @@
 import { useLocation } from 'react-router-dom'
+import useAxiosPrivate from '../../hooks/useAxiosPrivate'
 import Box from '@mui/material/Box'
 import Typography from '@mui/material/Typography'
 import Card from '@mui/material/Card'
@@ -12,9 +13,19 @@ import ClearIcon from '@mui/icons-material/Clear'
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import InvertColorsOutlinedIcon from '@mui/icons-material/InvertColorsOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined';
+import axios, { axiosPrivate } from '../../utilities/axios'
 
 export default function PlantMatch() {
     const location = useLocation()
+
+    const userPlant = async () => {
+      try {
+        const response = await axiosPrivate.get('/api/userplants/')
+        console.log(response)
+      } catch (err) {
+        console.error(err)
+      }
+    }
 
   return (
       <Box>
@@ -53,7 +64,7 @@ export default function PlantMatch() {
               <IconButton sx={{ bgcolor: 'custom.medium' }}>
                 <ClearIcon fontSize='large' style={{ color: 'white' }} />
               </IconButton>
-              <IconButton sx={{ bgcolor: 'custom.medium' }}>
+              <IconButton onClick={userPlant} sx={{ bgcolor: 'custom.medium' }}>
                 <FavoriteBorderOutlinedIcon fontSize='large' style={{ color: 'white' }} />
               </IconButton>
             </Box>    
