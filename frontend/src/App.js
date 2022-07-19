@@ -1,14 +1,15 @@
 import './App.css';
-import { createTheme, ThemeProvider  } from '@mui/material';
+import { createTheme, ThemeProvider  } from '@mui/material'
 import Layout from './components/Layout'
 import AuthPage from './pages/AuthPage/AuthPage'
 import RequireAuth from './components/Auth/RequireAuth'
 import Home from './components/Home/Home'
 import MyPlants from './components/Plants/MyPlants'
 import Matches from './components/Plants/Matches'
-import BestMatch from './components/Plants/BestMatch';
+import BestMatch from './components/Plants/BestMatch'
 import Missing from './components/Missing/Missing'
-import PersistLogin from './components/PersistLogin';
+import PersistLogin from './components/PersistLogin'
+
 
 import { Routes, Route } from 'react-router-dom'
 
