@@ -9,7 +9,7 @@ import Matches from './components/Plants/Matches'
 import BestMatch from './components/Plants/BestMatch'
 import Missing from './components/Missing/Missing'
 import PersistLogin from './components/PersistLogin'
-import Testing from './components/Testing'
+
 
 import { Routes, Route } from 'react-router-dom'
 
@@ -44,7 +44,6 @@ export default function App() {
                 <Route path='myplants' element={<MyPlants />} />
                 <Route path='bestmatch' element={<BestMatch />}/>
                 <Route path='matches' element={<Matches />}/>
-                <Route path='testing' element={<Testing />} />
               </Route>
             </Route>
           {/* catch all */}

@@ -14,7 +14,7 @@ import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlin
 export default function MatchCard() {
   return (
     <>
-        <Card  elevation={0} sx={{ width: 375, borderRadius: '0', height: 700 }}>
+        <Card  variant='outlined' sx={{ width: 375, borderRadius: '0', height: 650 }}>
             <Box sx={{ marginTop: 8, marginBottom: 1, marginLeft: 1.5 }}>
                 <Typography variant='h6' >Bird of Paradise</Typography>
             </Box>
