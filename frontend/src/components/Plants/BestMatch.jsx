@@ -16,31 +16,34 @@ import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined'
 import CoronavirusOutlinedIcon from '@mui/icons-material/CoronavirusOutlined'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
+import { useLocation } from 'react-router-dom'
 
 export default function BestMatch() {
-  return (
+    const location = useLocation()
+  
+    return (
     <Box sx={{ marginTop: 7 }}>
         <Card  elevation={0} sx={{ width: 375, borderRadius: '0' }}>
             <CardMedia
             component="img"
             height="375"
-            image="https://m.media-amazon.com/images/I/51wYWuPCK-L._AC_SL1000_.jpg"
+            image={location.state.plant['image']}
             />
             <CardContent>
-                <Typography variant='h6' sx={{ fontWeight: 'bold' }}>Bird of Paradise</Typography>
+                <Typography variant='h6' sx={{ fontWeight: 'bold' }}>{location.state.plant['scientific_name']}</Typography>
                 <Typography variant='body2'>Care & Conditions</Typography>
                 <Box sx={{ mt: 4, display: 'flex', justifyContent: 'space-around' }}>
                     <Stack spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
                         <Avatar sx={{ bgcolor: 'custom.light' }}>
                             <InvertColorsOutlinedIcon sx={{ color: 'custom.mediumDark' }} />
                         </Avatar>
-                        <Typography variant='body2'>Water</Typography>
+                        <Typography variant='body2'>{location.state.plant['water_use']}</Typography>
                     </Stack>
                     <Stack spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
                         <Avatar sx={{ bgcolor: 'custom.light' }}>
                             <LightModeOutlinedIcon sx={{ color: 'custom.mediumDark' }} />
                         </Avatar>
-                        <Typography variant='body2'>Light</Typography>
+                        <Typography variant='body2'>{location.state.plant['light']}</Typography>
                     </Stack>
                 </Box>
                 
@@ -55,13 +58,13 @@ export default function BestMatch() {
                                     <Avatar sx={{ bgcolor: 'custom.light' }}>
                                     <BugReportOutlinedIcon sx={{ color: 'custom.mediumDark' }} />
                                     </Avatar>
-                                    <Typography variant='body2'>Bugs</Typography>
+                                    <Typography variant='body2'>{location.state.plant['insects']}</Typography>
                                 </Stack>
                                 <Stack spacing={1} sx={{ display: 'flex', alignItems: 'center' }}>
                                     <Avatar sx={{ bgcolor: 'custom.light' }}>
                                     <CoronavirusOutlinedIcon sx={{ color: 'custom.mediumDark' }} />
                                     </Avatar>
-                                    <Typography variant='body2'>Diseases</Typography>
+                                    <Typography variant='body2'>{location.state.plant['disease']}</Typography>
                                 </Stack>
                             </Stack>
                         </AccordionDetails>

@@ -46,9 +46,9 @@ export default function MyPlants() {
   }
 
   // const plantList = plants.map((plant, id) => (
-  //   <Card>
+  //   <MyPlantsCard>
 
-  //   </Card>
+  //   </MyPlantsCard>
   // ))
 
   return (
