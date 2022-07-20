@@ -25,7 +25,6 @@ export default function Home() {
 
   async function handleSubmit(e) {
     e.preventDefault()
-
     const s3URL = await uploadToS3(image)
 
     const plantId = await plantIdentification(s3URL)

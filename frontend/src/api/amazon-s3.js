@@ -4,7 +4,7 @@ const config = {
     bucketName: "grow-together",
     region: "us-west-1",
     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_ID,
-    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY,
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_ACCESS_KEY
 }
 
 const ReactS3Client = new S3(config)

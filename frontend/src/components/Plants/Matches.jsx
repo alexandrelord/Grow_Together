@@ -34,6 +34,7 @@ export default function Matches() {
     <MatchCard key={id} match={match} handleClick={handleClick} />
   ))
 
+
   return (
       <Carousel autoPlay={false}>
         {plants}

@@ -6,6 +6,8 @@ import Stack from '@mui/material/Stack'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import ClearIcon from '@mui/icons-material/Clear'
+import { axiosPrivate } from '../../utilities/axios'
+
 
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import InvertColorsOutlinedIcon from '@mui/icons-material/InvertColorsOutlined'
