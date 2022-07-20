@@ -13,16 +13,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import InvertColorsOutlinedIcon from '@mui/icons-material/InvertColorsOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 
-export default function MatchCard() {
-
-    const userPlant = async () => {
-        try {
-          const response = await axiosPrivate.get('/api/userplants/')
-          console.log(response)
-        } catch (err) {
-          console.error(err)
-        }
-      }
+export default function MatchCard({ match }) {
   return (
     <>
         <Card  variant='outlined' sx={{ width: 375, borderRadius: '0', height: 650 }}>
