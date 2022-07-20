@@ -8,12 +8,10 @@ from .models import Plant, UserPlant
 from authentication.models import User
 from authentication.authentication import decode_access_token
 
-from api import serializers
 
 class PlantsAPIView(APIView):
     def get(self, request):
         auth = get_authorization_header(request).split()
-
         if auth and len(auth) == 2:
             token = auth[1].decode('utf-8')
             id = decode_access_token(token)
@@ -41,30 +39,32 @@ class Matches(APIView):
         return Response(serializer.data)
 
 
-class MatchPlants(APIView):
-    def post(self, request):
-        userId = ''
+class MatchMaker(APIView):
+    def get(self, request):
+        # print(request.headers)
         auth = get_authorization_header(request).split()
+        print(auth)
         if auth and len(auth) == 2:
             token = auth[1].decode('utf-8')
             id = decode_access_token(token)
-            userId = id
-        user = User.objects.get(id = userId)
-        plant = Plant.objects.get(id = request.data['mainPlant']['id'])
-        matched_plant = Plant.objects.get(id = request.data['matchedPlantId'])
-        image = request.data['mainPlant']['image']
-        UserPlant.objects.create(
-        user_plant=plant,
-        user=user,
-        matched_plant=matched_plant,
-        plant_image=image)
+            
+            # user = User.objects.get(pk=id)
+            # plant = Plant.objects.get(pk=request.data['mainPlant']['id'])
+            # matched_plant = Plant.objects.get(pk=request.data['matchedPlantId'])
+            # # print(user, plant, matched_plant)
+            # image = request.data['mainPlant']['image']
+            # UserPlant.objects.create(
+            # user_plant=plant,
+            # user=user,
+            # matched_plant=matched_plant,
+            # plant_image=image)
         
-        return Response("success")
+        return Response(auth)
 
 class DeletePlant(APIView):
     def post(self, request):
         auth = get_authorization_header(request).split()
-
+        print(auth)
         if auth and len(auth) == 2:
             token = auth[1].decode('utf-8')
             id = decode_access_token(token)
