@@ -14,7 +14,7 @@ export default function BestMatch() {
     const navigate = useNavigate()
 
     useEffect(() => {
-      if (matches) navigate('/matches', {state: {matches: matches}})
+      if (matches) navigate('/matches', {state: {matches: matches, plant: location.state.plant['id']}})
     }, [matches])
     
     async function handleClick(e) {
