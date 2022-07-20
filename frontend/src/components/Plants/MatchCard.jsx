@@ -46,7 +46,7 @@ export default function MatchCard({ match }) {
                 <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
                     <ClearIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
-                <IconButton onClick={userPlant} sx={{ bgcolor: 'custom.medium' }} disableRipple>
+                <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
                     <FavoriteBorderOutlinedIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
             </Box> 
