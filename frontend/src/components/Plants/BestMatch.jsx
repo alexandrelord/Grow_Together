@@ -14,7 +14,7 @@ export default function BestMatch() {
     const navigate = useNavigate()
 
     useEffect(() => {
-      if (matches) navigate('/matches', {state: matches})
+      if (matches) navigate('/matches', {state: {matches: matches}})
     }, [matches])
     
     async function handleClick(e) {
@@ -22,6 +22,7 @@ export default function BestMatch() {
 
       try {
         const response = await axiosPrivate.post('api/matches/', { light: location.state.plant['light'] })
+        console.log(response.data)
         setMatches(response.data)
       } catch (error) {
         console.error(error)
