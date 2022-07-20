@@ -11,15 +11,16 @@ export default function Matches() {
   const location = useLocation()
   const navigate = useNavigate()
   const matches = location.state.matches
-  const mainPlantId = location.state.plant
+  const mainPlant = location.state.mainPlant
+  
   
   async function handleClick(e) {
     e.preventDefault()
 
     try {
       const matchedPlantId = e.currentTarget.getAttribute('plantid')
-      // console.log(matchedPlantId, mainPlantId)
-      const response = axiosPrivate.post('api/matchmaker/', { plants: {mainPlantId, matchedPlantId} })
+      console.log(matchedPlantId, mainPlant)
+      const response = axiosPrivate.post('api/matchmaker/', { plants: {mainPlant, matchedPlantId} })
       console.log(response)
       if(response === 'success') navigate('/myplants')
       else console.error('Matched Failed')
