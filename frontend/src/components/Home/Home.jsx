@@ -2,30 +2,25 @@ import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { uploadToS3 } from '../../api/amazon-s3'
 import { plantIdentification } from '../../api/plantNet'
+import useAxiosPrivate from '../../hooks/useAxiosPrivate'
 
 import Stack from '@mui/material/Stack'
 import Box from '@mui/material/Box'
 import IconButton from '@mui/material/IconButton'
-import PhotoCamera from '@mui/icons-material/PhotoCamera'
 import Button from '../Button'
 import Typography from '@mui/material/Typography'
+import PhotoCamera from '@mui/icons-material/PhotoCamera'
 import style from './Home.module.css'
-import useAxiosPrivate from '../../hooks/useAxiosPrivate'
-
 
 export default function Home() {
   const [image, setImage] = useState('')
   const [plant, setPlant] = useState()
   const [bestScore, setBestScore] = useState(null)
-
   const axiosPrivate = useAxiosPrivate()
-
-
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (plant) 
-      navigate('/bestmatch', {state: {plant, bestScore}})
+    if (plant) navigate('/bestmatch', {state: {plant, bestScore}})
   }, [plant])
 
   async function handleSubmit(e) {

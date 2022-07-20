@@ -3,23 +3,16 @@ import MatchCard from './MatchCard'
 import Carousel from 'react-material-ui-carousel'
 
 export default function Matches() {
-    const location = useLocation()
+  const location = useLocation()
+  const matches = location.state.matches
+  // const plants = matches.map((match, id) => (
+  //   <MatchCard key={id} match={match} />
+  // ))
 
   return (
       <Carousel autoPlay={false}>
         <MatchCard />
         <MatchCard />
-        <MatchCard />
-      </Carousel>
-     
-      
-    
+      </Carousel>    
   )
 }
-
-{/* <br />
-      <h3>Best Match: {location.state.plant}</h3>
-      <br />
-      <h3>Matching Score: {location.state.bestScore} %</h3>
-      <br />
-      <img src={location.state.plantImg} style={{height: 200, width: 200}}></img> */}

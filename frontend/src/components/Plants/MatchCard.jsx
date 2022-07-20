@@ -11,7 +11,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import InvertColorsOutlinedIcon from '@mui/icons-material/InvertColorsOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 
-export default function MatchCard() {
+export default function MatchCard({ match }) {
   return (
     <>
         <Card  variant='outlined' sx={{ width: 375, borderRadius: '0', height: 650 }}>

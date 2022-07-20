@@ -16,7 +16,7 @@ import BugReportOutlinedIcon from '@mui/icons-material/BugReportOutlined'
 import CoronavirusOutlinedIcon from '@mui/icons-material/CoronavirusOutlined'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
-export default function BestMatchCard({ location }) {
+export default function BestMatchCard({ location, handleClick }) {
   return (
     <Card  elevation={0} sx={{ width: 375, borderRadius: '0' }}>
             
@@ -73,10 +73,10 @@ export default function BestMatchCard({ location }) {
                 </Box>
             </CardContent>
             <Box sx={{ width: 335, margin: 'auto', marginBottom: 1}}>
-                <Stack>
+                <Stack onClick={handleClick}>
                     <Button label='See all matches...' />
                 </Stack>
             </Box>
-        </Card>
+    </Card>
   )
 }
