@@ -1,12 +1,9 @@
-from rest_framework.authentication import get_authorization_header
 from rest_framework.response import Response
 from rest_framework.views import APIView
-from rest_framework.exceptions import APIException, AuthenticationFailed
-
-from .authentication import create_access_token, create_refresh_token, decode_access_token, decode_refresh_token
+from rest_framework.exceptions import APIException
+from .authentication import create_access_token, create_refresh_token, decode_refresh_token
 from .serializers import UserSerializer
 from .models import User
-
 
 class RegisterAPIView(APIView):
     def post(self, request):
@@ -39,21 +36,14 @@ class LoginAPIView(APIView):
         return response
 
 
-class UserAPIView(APIView):
-    def post(self, request):
-        auth = get_authorization_header(request).split()
-        print(auth)
-        if auth and len(auth) == 2:
-            token = auth[1].decode('utf-8')
-            id = decode_access_token(token)
-
-            # user = User.objects.filter(pk=id).first()
-            users = User.objects.all()
-            serializer = UserSerializer(users, many=True)
-
-            return Response(serializer.data)
-
-        raise AuthenticationFailed('unauthenticated')
+class LogoutAPIView(APIView):
+    def post(self, _):
+        response = Response()
+        response.delete_cookie(key="refreshToken")
+        response.data = {
+            'message': 'success'
+        }
+        return response
 
 
 class RefreshAPIView(APIView):
@@ -65,12 +55,3 @@ class RefreshAPIView(APIView):
             'token': access_token
         })
 
-
-class LogoutAPIView(APIView):
-    def post(self, _):
-        response = Response()
-        response.delete_cookie(key="refreshToken")
-        response.data = {
-            'message': 'success'
-        }
-        return response
