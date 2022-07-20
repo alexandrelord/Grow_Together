@@ -77,11 +77,20 @@ class MatchMaker(APIView):
 
         raise AuthenticationFailed('unauthenticated')
 
-class NewEnd(APIView):
-    def get(self, request):
+class MyPlants(APIView):
+    def post(self, request):
         auth = get_authorization_header(request).split()
-        print(auth)
+        if auth and len(auth) == 2:
+            token = auth[1].decode('utf-8')
+            id = decode_access_token(token)
+            user = User.objects.get(pk=id)
+            userPlants = UserPlant.objects.filter(user = user)
+            serializer = UserPlantSerializer(userPlants, many=True) 
 
-        return Response('whatev')
+            return Response(serializer.data)
+
+        raise AuthenticationFailed('unauthenticated')
+
+
 
     

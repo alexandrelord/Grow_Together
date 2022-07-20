@@ -10,4 +10,4 @@ class PlantSerializer(serializers.ModelSerializer):
 class UserPlantSerializer(serializers.ModelSerializer):
     class Meta:
         model = UserPlant
-        fields = ['__all__']
+        fields = '__all__'
