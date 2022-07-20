@@ -55,7 +55,7 @@ export default function MyPlants() {
 
       <Container maxWidth='xs' >
         <Box sx={{ marginTop: 15 }}>
-          <Paper sx={{ height: 375, p: 2.5, bgcolor: 'custom.medium' }}>
+          <Paper sx={{ height: 375, p: 2.5, bgcolor: 'custom.light' }}>
             <Stack spacing={2}>
               <MyPlantsCard delete={handleDelete}/>
               <MyPlantsCard delete={handleDelete}/>  

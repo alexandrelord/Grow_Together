@@ -1,4 +1,4 @@
-import S3 from "react-aws-s3";
+import S3 from "react-aws-s3"
 
 const config = {
     bucketName: "grow-together",
