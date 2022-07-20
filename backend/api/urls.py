@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import PlantsAPIView, DeletePlant, BestMatch, Matches, MatchMaker, NewEnd
+from .views import PlantsAPIView, DeletePlant, BestMatch, Matches, MatchMaker, MyPlants
 
 urlpatterns = [
     path('plants/', PlantsAPIView.as_view()),
@@ -8,5 +8,5 @@ urlpatterns = [
     path('matches/', Matches.as_view()),
     path('matchmaker/', MatchMaker.as_view()),
     path('plants/delete/', DeletePlant.as_view()),
-    path('whatev/', NewEnd.as_view())
+    path('myplants/', MyPlants.as_view())
 ]
