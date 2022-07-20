@@ -6,12 +6,23 @@ import Stack from '@mui/material/Stack'
 import Divider from '@mui/material/Divider'
 import IconButton from '@mui/material/IconButton'
 import ClearIcon from '@mui/icons-material/Clear'
+import { axiosPrivate } from '../../utilities/axios'
+
 
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import InvertColorsOutlinedIcon from '@mui/icons-material/InvertColorsOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 
 export default function MatchCard() {
+
+    const userPlant = async () => {
+        try {
+          const response = await axiosPrivate.get('/api/userplants/')
+          console.log(response)
+        } catch (err) {
+          console.error(err)
+        }
+      }
   return (
     <>
         <Card  variant='outlined' sx={{ width: 375, borderRadius: '0', height: 650 }}>
@@ -48,7 +59,7 @@ export default function MatchCard() {
                 <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
                     <ClearIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
-                <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
+                <IconButton onClick={userPlant} sx={{ bgcolor: 'custom.medium' }} disableRipple>
                     <FavoriteBorderOutlinedIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
             </Box> 
