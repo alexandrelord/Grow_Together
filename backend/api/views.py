@@ -80,23 +80,14 @@ class MatchMaker(APIView):
 class MyPlants(APIView):
     def post(self, request):
         auth = get_authorization_header(request).split()
-        print(auth)
         if auth and len(auth) == 2:
             token = auth[1].decode('utf-8')
             id = decode_access_token(token)
-
             user = User.objects.get(pk=id)
-            plant = Plant.objects.get(pk=request.data['mainPlant']['id'])
-            matched_plant = Plant.objects.get(pk=request.data['matchedPlantId'])
-            print(user, plant, matched_plant)
-            image = request.data['mainPlant']['image']
-            UserPlant.objects.create(
-            user_plant=plant,
-            user=user,
-            matched_plant=matched_plant,
-            plant_image=image)
+            userPlants = UserPlant.objects.filter(user = user)
+            serializer = UserPlantSerializer(userPlants, many=True) 
 
-            return Response('success')
+            return Response(serializer.data)
 
         raise AuthenticationFailed('unauthenticated')
 
