@@ -13,7 +13,7 @@ import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined'
 import InvertColorsOutlinedIcon from '@mui/icons-material/InvertColorsOutlined'
 import FavoriteBorderOutlinedIcon from '@mui/icons-material/FavoriteBorderOutlined'
 
-export default function MatchCard({ match }) {
+export default function MatchCard({ match, handleClick }) {
   return (
     <>
         <Card  variant='outlined' sx={{ width: 375, borderRadius: '0', height: 650 }}>
@@ -46,7 +46,7 @@ export default function MatchCard({ match }) {
                 <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
                     <ClearIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
-                <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple>
+                <IconButton sx={{ bgcolor: 'custom.medium' }} disableRipple plantid={match['id']} onClick={handleClick}>
                     <FavoriteBorderOutlinedIcon fontSize='large' style={{ color: 'white' }} />
                 </IconButton>
             </Box> 
