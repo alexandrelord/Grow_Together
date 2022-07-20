@@ -31,6 +31,14 @@ class BestMatch(APIView):
         return Response(serializer.data)
 
 
+class Matches(APIView):
+    def post(self, request):
+        light = request.data['light'].split()[:1]
+        matches = Plant.objects.filter(light__contains=light[0])
+        serializer = PlantSerializer(matches, many=True)
+        return Response(serializer.data)
+
+
 class DeletePlant(APIView):
     def post(self, request):
         auth = get_authorization_header(request).split()
