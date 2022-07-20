@@ -18,30 +18,26 @@ export default function MatchCard({ match }) {
     <>
         <Card  variant='outlined' sx={{ width: 375, borderRadius: '0', height: 650 }}>
             <Box sx={{ marginTop: 8, marginBottom: 1, marginLeft: 1.5 }}>
-                <Typography variant='h6' >Bird of Paradise</Typography>
+                <Typography variant='h6' >{match['scientific_name']}</Typography>
             </Box>
             <CardMedia
             component="img"
             height="375"
-            image="https://m.media-amazon.com/images/I/51wYWuPCK-L._AC_SL1000_.jpg"
+            image={match['image']}
             />
             <Box sx={{ border: '1px solid green', maxWidth: 375, height: 40, p: 1 }}>
                 <Stack direction='row' spacing={2} sx={{ display: 'flex', justifyContent: 'center' }}>
                     <Box>
-                        <Typography variant='body2'>93% Match</Typography>
-                    </Box>
-                    <Divider orientation="vertical" flexItem sx={{ bgcolor: 'custom.medium' }} />
-                    <Box>
                         <Stack direction='row' spacing={0.5}>
                         <InvertColorsOutlinedIcon fontSize='small' />
-                        <Typography variant='body2'>Water</Typography>
+                        <Typography variant='body2'>{match['water_use']}</Typography>
                         </Stack>
                     </Box>
                     <Divider orientation="vertical" flexItem sx={{ bgcolor: 'custom.medium' }} />
                     <Box>
                         <Stack direction='row' spacing={1}>
-                        <LightModeOutlinedIcon fontSize='small' />
-                        <Typography variant='body2'>Light</Typography>
+                            <LightModeOutlinedIcon fontSize='small' />
+                            <Typography variant='body2'>{match['light']}</Typography>
                         </Stack>
                     </Box> 
                 </Stack>

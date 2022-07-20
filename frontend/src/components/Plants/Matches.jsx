@@ -6,15 +6,15 @@ import Carousel from 'react-material-ui-carousel'
 export default function Matches() {
   const location = useLocation()
   const matches = location.state.matches
-  // const plants = matches.map((match, id) => (
-  //   <MatchCard key={id} match={match} />
-  // ))
+  console.log(matches)
+  const plants = matches.map((match, id) => (
+    <MatchCard key={id} match={match} />
+  ))
 
 
   return (
       <Carousel autoPlay={false}>
-        <MatchCard />
-        <MatchCard />
+        {plants}
       </Carousel>    
   )
 }
