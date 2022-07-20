@@ -20,7 +20,8 @@ export default function Matches() {
     try {
       const matchedPlantId = Number(e.currentTarget.getAttribute('plantid'))
       // const response = await axiosPrivate.post('api/matchmaker/', { matchedPlantId, mainPlant: {id: mainPlant.id, image: 'weird.com'} })
-      const response = await axiosPrivate.get('api/matchmaker/')
+      // const response = await axiosPrivate.get('api/matchmaker/')
+      const response = await axiosPrivate.get('api/whatev/')
       // const response = await axiosPrivate.post('authentication/user/', {anything: 'aything'})
       // const response = await axiosPrivate.get('api/plants/')
       // const response = await axiosPrivate.post('api/plants/delete/')

@@ -38,29 +38,6 @@ class Matches(APIView):
         serializer = PlantSerializer(matches, many=True)
         return Response(serializer.data)
 
-
-class MatchMaker(APIView):
-    def get(self, request):
-        # print(request.headers)
-        auth = get_authorization_header(request).split()
-        print(auth)
-        if auth and len(auth) == 2:
-            token = auth[1].decode('utf-8')
-            id = decode_access_token(token)
-            
-            # user = User.objects.get(pk=id)
-            # plant = Plant.objects.get(pk=request.data['mainPlant']['id'])
-            # matched_plant = Plant.objects.get(pk=request.data['matchedPlantId'])
-            # # print(user, plant, matched_plant)
-            # image = request.data['mainPlant']['image']
-            # UserPlant.objects.create(
-            # user_plant=plant,
-            # user=user,
-            # matched_plant=matched_plant,
-            # plant_image=image)
-        
-        return Response(auth)
-
 class DeletePlant(APIView):
     def post(self, request):
         auth = get_authorization_header(request).split()
@@ -77,7 +54,34 @@ class DeletePlant(APIView):
 
         raise AuthenticationFailed('unauthenticated')
 
+class MatchMaker(APIView):
+    def post(self, request):
+        auth = get_authorization_header(request).split()
+        print(auth)
+        if auth and len(auth) == 2:
+            token = auth[1].decode('utf-8')
+            id = decode_access_token(token)
 
+            user = User.objects.get(pk=id)
+            plant = Plant.objects.get(pk=request.data['mainPlant']['id'])
+            matched_plant = Plant.objects.get(pk=request.data['matchedPlantId'])
+            print(user, plant, matched_plant)
+            image = request.data['mainPlant']['image']
+            UserPlant.objects.create(
+            user_plant=plant,
+            user=user,
+            matched_plant=matched_plant,
+            plant_image=image)
 
+            return Response('success')
+
+        raise AuthenticationFailed('unauthenticated')
+
+class NewEnd(APIView):
+    def get(self, request):
+        auth = get_authorization_header(request).split()
+        print(auth)
+
+        return Response('whatev')
 
     
