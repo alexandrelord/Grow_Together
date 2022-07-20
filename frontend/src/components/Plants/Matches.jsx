@@ -12,18 +12,21 @@ export default function Matches() {
   const navigate = useNavigate()
   const matches = location.state.matches
   const mainPlant = location.state.mainPlant
-  
+  mainPlant.image = location.state.imageX
   
   async function handleClick(e) {
     e.preventDefault()
 
     try {
-      const matchedPlantId = e.currentTarget.getAttribute('plantid')
-      console.log(matchedPlantId, mainPlant)
-      const response = axiosPrivate.post('api/matchmaker/', { plants: {mainPlant, matchedPlantId} })
+      const matchedPlantId = Number(e.currentTarget.getAttribute('plantid'))
+      // const response = await axiosPrivate.post('api/matchmaker/', { matchedPlantId, mainPlant: {id: mainPlant.id, image: 'weird.com'} })
+      const response = await axiosPrivate.get('api/matchmaker/')
+      // const response = await axiosPrivate.post('authentication/user/', {anything: 'aything'})
+      // const response = await axiosPrivate.get('api/plants/')
+      // const response = await axiosPrivate.post('api/plants/delete/')
       console.log(response)
-      if(response === 'success') navigate('/myplants')
-      else console.error('Matched Failed')
+      // if(response.data === 'success') navigate('/myplants')
+      // else console.error('Matched Failed')
     } catch (error) {
       console.error(error)
     }

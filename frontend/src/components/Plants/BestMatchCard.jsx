@@ -23,7 +23,7 @@ export default function BestMatchCard({ location, handleClick }) {
                 <CardMedia
                 component="img"
                 height="375"
-                image={location.state.plant['image']}
+                image={location.state.imageX}
                 />
             
             <CardContent>

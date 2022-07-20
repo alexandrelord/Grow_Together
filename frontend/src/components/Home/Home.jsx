@@ -14,18 +14,20 @@ import style from './Home.module.css'
 
 export default function Home() {
   const [image, setImage] = useState('')
+  const [imageX, setImageX] = useState()
   const [plant, setPlant] = useState()
   const [bestScore, setBestScore] = useState(null)
   const axiosPrivate = useAxiosPrivate()
   const navigate = useNavigate()
 
   useEffect(() => {
-    if (plant) navigate('/bestmatch', {state: {plant, bestScore}})
+    if (plant) navigate('/bestmatch', {state: {plant, bestScore, imageX}})
   }, [plant])
 
   async function handleSubmit(e) {
     e.preventDefault()
     const s3URL = await uploadToS3(image)
+    setImageX(s3URL)
 
     const plantId = await plantIdentification(s3URL)
     setBestScore((plantId.results[0].score * 100).toFixed(2)) 
