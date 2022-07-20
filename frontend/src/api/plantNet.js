@@ -1,4 +1,5 @@
 import axios from 'axios'
+
 window.Buffer = window.Buffer || require("buffer").Buffer
 
 const apiURL = 'https://my-api.plantnet.org/v2/identify/all?api-key='
