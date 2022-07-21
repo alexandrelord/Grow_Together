@@ -55,11 +55,20 @@ class MyPlants(APIView):
             userX = User.objects.get(pk=id)
 
             user_plants = UserPlant.objects.filter(user=userX)
-            
+            arr = []
+            for plant in user_plants:
+                matched_plant = Plant.objects.get(pk=plant.matched_plant.id)
+                serializer_matched = PlantSerializer(matched_plant).data
+                user_plant = Plant.objects.get(pk=plant.user_plant.id)
+                serializer_user = PlantSerializer(user_plant).data
+                plant_obj = {}
+                plant_obj.update({
+                'matched_plant':serializer_matched,
+                'user_plant':serializer_user
+                })
+                arr.append(plant_obj)
 
-            serializer = UserPlantSerializer(user_plants, many=True) 
-
-            return Response(serializer.data)
+            return Response(arr)
 
         raise AuthenticationFailed('unauthenticated')
 
