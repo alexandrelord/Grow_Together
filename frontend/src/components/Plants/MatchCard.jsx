@@ -51,7 +51,6 @@ export default function MatchCard({ match, handleClick }) {
                 </IconButton>
             </Box> 
         </Card>
-
     </>
   )
 }

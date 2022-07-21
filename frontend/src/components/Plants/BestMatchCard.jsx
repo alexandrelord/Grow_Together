@@ -18,14 +18,12 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore'
 
 export default function BestMatchCard({ location, handleClick }) {
   return (
-    <Card  elevation={0} sx={{ width: 375, borderRadius: '0' }}>
-            
-                <CardMedia
-                component="img"
-                height="375"
-                image={location.state.imageX}
-                />
-            
+    <Card variant='outlined' sx={{ width: 375, borderRadius: '0' }}>
+            <CardMedia
+            component="img"
+            height="375"
+            image={location.state.imageX}
+            />
             <CardContent>
                 <Stack direction='row' spacing={3} sx={{ display: 'flex', alignItems: 'baseline' }}>
                     <Typography variant='h6' sx={{ fontWeight: 'bold' }}>{location.state.plant['scientific_name']}</Typography>

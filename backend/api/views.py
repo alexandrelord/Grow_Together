@@ -63,8 +63,9 @@ class MyPlants(APIView):
                 serializer_user = PlantSerializer(user_plant).data
                 plant_obj = {}
                 plant_obj.update({
-                'matched_plant':serializer_matched,
-                'user_plant':serializer_user
+                'matched_plant': serializer_matched,
+                'user_plant': serializer_user,
+                'match_id': plant.id
                 })
                 arr.append(plant_obj)
 
@@ -72,16 +73,15 @@ class MyPlants(APIView):
 
         raise AuthenticationFailed('unauthenticated')
 
-    def delete(self, request):
+    def post(self, request):
+        print(request.data)
         auth = get_authorization_header(request).split()
         if auth and len(auth) == 2:
             token = auth[1].decode('utf-8')
             id = decode_access_token(token)
-            user = User.objects.get(pk=id)
-
-            for match in user.user.all():
-                if (match.id==request.data['matchId']):
-                    UserPlant.objects.get(pk=match.id).delete()
+            # user = User.objects.get(pk=id)
+            # for match in user.user.all():
+            UserPlant.objects.get(pk=request.data['matchId']).delete()
 
             return Response('Match deleted successfully')
 

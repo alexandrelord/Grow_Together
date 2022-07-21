@@ -85,6 +85,7 @@ export default function SignUpForm() {
           onChange={(e) => setConfirm(e.target.value)} 
           value={confirm}
           required 
+          style={{ marginBottom: 10 }} 
          />
          <Button label='Sign Up'/>
        </Stack>

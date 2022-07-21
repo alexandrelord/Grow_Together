@@ -54,13 +54,14 @@ export default function Home() {
         spacing={2}
         onSubmit={handleSubmit}
       >
-        <Box sx={{ border: '1px dashed black', textAlign: 'center'}}>
-          <IconButton component='label' >
-            <input hidden type='file' name='photo' onChange={(e) => setImage(e.target.files[0])} />
-            <PhotoCamera />
-          </IconButton>
-        </Box>
-        <Button variant='contained' label='Send' />
+          <Box sx={{ border: '1px dashed black', textAlign: 'center'}}>
+            <IconButton component='label' >
+              <input hidden type='file' name='photo' onChange={(e) => setImage(e.target.files[0])} />
+              <PhotoCamera />
+            </IconButton>
+          </Box>
+          <Button variant='contained' label='Send' />
+        
       </Stack>
     </>
   )
