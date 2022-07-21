@@ -18,7 +18,6 @@ export default function LoginForm() {
   const [password, setPassword] = useState('')
   const [errMsg, setErrMsg] = useState('')
 
-
   useEffect(() => {
     setErrMsg('')
   }, [username, password])
@@ -73,7 +72,8 @@ export default function LoginForm() {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}  
           value={password} 
-          required 
+          required
+          style={{ marginBottom: 10 }} 
           />
           <Button label='Log In' />
         </Stack>

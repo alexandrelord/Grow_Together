@@ -1,10 +1,7 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import useAxiosPrivate from '../../hooks/useAxiosPrivate'
-
-// styles
 import MatchCard from './MatchCard'
 import Carousel from 'react-material-ui-carousel'
-
 
 export default function Matches() {
   const axiosPrivate = useAxiosPrivate()
@@ -31,7 +28,6 @@ export default function Matches() {
   const plants = matches.map((match, id) => (
     <MatchCard key={id} match={match} handleClick={handleClick} />
   ))
-
 
   return (
       <Carousel autoPlay={false}>

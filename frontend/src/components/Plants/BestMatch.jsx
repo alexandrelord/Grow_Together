@@ -23,7 +23,7 @@ export default function BestMatch() {
       try {
         const response = await axiosPrivate.post('api/matches/', { light: location.state.plant['light'] })
 
-        // console.log(response.data)
+        console.log(response.data)
         setMatches(response.data)
       } catch (error) {
         console.error(error)
@@ -32,8 +32,8 @@ export default function BestMatch() {
     }
 
     return (
-    <Box sx={{ marginTop: 7 }}>
-        <BestMatchCard location={location} handleClick={handleClick} />
+    <Box sx={{ marginTop: 7, display: 'flex', justifyContent: 'center' }}>
+      <BestMatchCard location={location} handleClick={handleClick} />
     </Box>
   )
 }
