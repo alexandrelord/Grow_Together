@@ -8,29 +8,25 @@ import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import MyPlantsCard from './MyPlantsCard'
 
-
 export default function MyPlants() {
-  const [plants, setPlants] = useState()
+  const [myPlants, setMyPlants] = useState([])
   const axiosPrivate = useAxiosPrivate()
   const navigate = useNavigate()
   const location = useLocation()
-  
 
   useEffect(() => {
 
-    const getPlants = async () => {
+    const getMyPlants = async () => {
       try {
-        const response = await axiosPrivate.get('/api/plants/')
-        // console.log(response)
-        setPlants(response.data)
+        const response = await axiosPrivate.get('/api/myplants/')
+        console.log(response.data)
+        setMyPlants(response.data)
       } catch (error) {
         console.error(error)
         navigate('/login', { state: { from: location }, replace: true })
       }
     }
-
-    getPlants()
-
+    getMyPlants()
   }, [])
 
   const handleDelete = async (e) => {
@@ -45,10 +41,8 @@ export default function MyPlants() {
     // }
   }
 
-  // const plantList = plants.map((plant, id) => (
-  //   <MyPlantsCard>
-
-  //   </MyPlantsCard>
+  // const match = myPlants.map((myPlant, id) => (
+  //   <MyPlantsCard key={id} myPlant={myPlant} handleDelete={handleDelete} />
   // ))
 
   return (
@@ -57,27 +51,18 @@ export default function MyPlants() {
         <Box sx={{ marginTop: 15 }}>
           <Paper sx={{ height: 375, p: 2.5, bgcolor: 'custom.light' }}>
             <Stack spacing={2}>
-              <MyPlantsCard delete={handleDelete}/>
-              <MyPlantsCard delete={handleDelete}/>  
+              {myPlants.length === 0 
+                ? 'No Plants in your Database'
+                : 
+                myPlants.map((myPlant, id) => (
+                  console.log(myPlant)
+                  // <MyPlantsCard key={id} myPlant={myPlant} handleDelete={handleDelete} />
+                ))
+               }
             </Stack>  
           </Paper>   
         </Box>
       </Container>
-    
-
-    // <Box sx={{ marginY: 20 }}>
-    //   {plants?.length
-    //   ? (
-    //     <ul>
-    //       {plants.map((plant, id) => 
-    //       <li key={id}>
-    //         {plant?.scientific_name}
-    //         <button id={plant.id} onClick={handleDelete}>Delete</button>
-    //       </li>)}
-    //     </ul>
-    //   ) : <p>No plants</p>
-    //   }
-    // </Box>
   )
 }
 

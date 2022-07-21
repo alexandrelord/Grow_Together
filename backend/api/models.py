@@ -15,7 +15,7 @@ class Plant(models.Model):
 
 class UserPlant(models.Model):
    user= models.ForeignKey(User, related_name="user", on_delete=models.CASCADE, default= 1)
-   user_plant = models.ForeignKey(Plant, related_name="userPlant", on_delete=models.CASCADE, blank=True, default=None)
+   user_plant = models.ForeignKey(Plant, related_name="userplant", on_delete=models.CASCADE, blank=True, default=None)
    matched_plant = models.ForeignKey(Plant, related_name="matchedPlant", on_delete=models.CASCADE,  blank=True, default=None)
    plant_image = models.CharField(max_length=200, blank=True, default=None)
 

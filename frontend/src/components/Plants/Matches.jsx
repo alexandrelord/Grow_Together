@@ -10,6 +10,7 @@ export default function Matches() {
   const axiosPrivate = useAxiosPrivate()
   const location = useLocation()
   const navigate = useNavigate()
+
   const matches = location.state.matches
   const mainPlant = location.state.mainPlant
   mainPlant.image = location.state.imageX
@@ -25,7 +26,6 @@ export default function Matches() {
     } catch (error) {
       console.error(error)
     }
-
   }
 
   const plants = matches.map((match, id) => (

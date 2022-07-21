@@ -52,8 +52,11 @@ class MyPlants(APIView):
         if auth and len(auth) == 2:
             token = auth[1].decode('utf-8')
             id = decode_access_token(token)
-            user = User.objects.get(pk=id)
-            user_plants = UserPlant.objects.filter(user=user)
+            userX = User.objects.get(pk=id)
+
+            user_plants = UserPlant.objects.filter(user=userX)
+            
+
             serializer = UserPlantSerializer(user_plants, many=True) 
 
             return Response(serializer.data)
