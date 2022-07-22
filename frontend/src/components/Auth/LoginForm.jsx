@@ -22,7 +22,6 @@ export default function LoginForm() {
     setErrMsg('')
   }, [username, password])
 
-
   const handleSubmit = async (e) => {
     e.preventDefault()
 
@@ -48,7 +47,6 @@ export default function LoginForm() {
   }
   
   return (
-
       <Box sx={{ marginTop: '50px' }}>
         <Stack 
           component='form'

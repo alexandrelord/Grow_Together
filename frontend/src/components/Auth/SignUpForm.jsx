@@ -23,16 +23,13 @@ export default function SignUpForm() {
     e.preventDefault()
 
     try {
-
-      if (password !== confirm) {
-        // setErrMsg("Passwords Don't Match")
-      }
       const response = await signUp({username, email, password})
     
       setUsername('')
       setPassword('')
       setEmail('')
       navigate('/')
+
     } catch (error) {
       if(!error?.response) {
         setErrMsg('No Server Response')
@@ -42,7 +39,6 @@ export default function SignUpForm() {
         setErrMsg('Sign Up Failed')
       }
     }
-
   }
 
   return (
@@ -88,8 +84,7 @@ export default function SignUpForm() {
           style={{ marginBottom: 10 }} 
          />
          <Button label='Sign Up'/>
-       </Stack>
-      
+      </Stack>
       <p className={errMsg ? 'errmsg' : 'offscreen'}>{errMsg}</p>
     </Box>
   )

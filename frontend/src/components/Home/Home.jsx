@@ -60,8 +60,7 @@ export default function Home() {
               <PhotoCamera />
             </IconButton>
           </Box>
-          <Button variant='contained' label='Send' />
-        
+          <Button variant='contained' label='Send' /> 
       </Stack>
     </>
   )

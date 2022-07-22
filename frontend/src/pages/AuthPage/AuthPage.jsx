@@ -28,10 +28,8 @@ export default function AuthPage() {
                         <Typography variant='body2' sx={{ cursor: 'pointer' }} onClick={() => setShowLogin(!showLogin)}>{showLogin ? 'SIGN UP' : 'LOG IN'}</Typography>
                     </Stack>
                 </Box>
-
                 {showLogin ? <LoginForm /> : <SignUpForm />}
             </Container>
         </Box>
     )
-
 }
