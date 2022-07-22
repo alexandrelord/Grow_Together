@@ -1,11 +1,8 @@
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import useAxiosPrivate from '../../hooks/useAxiosPrivate'
-
-// styles
 import Box from '@mui/material/Box'
 import BestMatchCard from './BestMatchCard'
-
 
 export default function BestMatch() {
     const [matches, setMatches] = useState()
@@ -22,13 +19,10 @@ export default function BestMatch() {
 
       try {
         const response = await axiosPrivate.post('api/matches/', { light: location.state.plant['light'] })
-
-        console.log(response.data)
         setMatches(response.data)
       } catch (error) {
         console.error(error)
       }
-
     }
 
     return (
