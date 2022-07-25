@@ -2,10 +2,4 @@
 
 body {
     min-height: 100vh;
-    background-image: linear-gradient(
-      to bottom,
-      #9ed5bb 0%,
-      #eaf5e9 48%,
-      rgba(234, 245, 233, 0) 100%
-    );
   }

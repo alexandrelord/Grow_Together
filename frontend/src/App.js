@@ -33,8 +33,8 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <Routes>
-        {/* public routes */}
-        <Route path='login' element={<AuthPage />} />
+          {/* public routes */}
+          <Route path='login' element={<AuthPage />} />
 
         <Route path='/' element={<Layout />}>
             <Route element={<PersistLogin />}>

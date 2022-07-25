@@ -18,11 +18,9 @@ export default function LoginForm() {
   const [password, setPassword] = useState('')
   const [errMsg, setErrMsg] = useState('')
 
-
   useEffect(() => {
     setErrMsg('')
   }, [username, password])
-
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -49,7 +47,6 @@ export default function LoginForm() {
   }
   
   return (
-
       <Box sx={{ marginTop: '50px' }}>
         <Stack 
           component='form'
@@ -73,7 +70,8 @@ export default function LoginForm() {
           placeholder='Password'
           onChange={(e) => setPassword(e.target.value)}  
           value={password} 
-          required 
+          required
+          style={{ marginBottom: 10 }} 
           />
           <Button label='Log In' />
         </Stack>
