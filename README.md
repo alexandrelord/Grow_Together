@@ -14,6 +14,39 @@ The app was built with a Django REST API, and a ReactJS frontend. It connects to
 - MUI
 - PostgreSQL
 
+## Images
+
+<table>
+  <tr>
+    <td>Sign Up</td>
+    <td>Log In</td>
+  </tr>
+  <tr>
+    <td><img src="Documentation/images/LOGIN.png" width=300 />
+    <td><img src="Documentation/images/SIGNUP.png" width=300 />
+  </tr>
+  <tr>
+    <td>Home</td>
+    <td>Side Menu</td>
+  </tr>
+  <tr>
+    <td><img src="Documentation/images/HOME.png" width=300 />
+    <td><img src="Documentation/images/DRAWER.png" width=300 />
+  </tr>
+  <tr>
+  <tr>
+    <td>Plant Identification</td>
+    <td>Matches</td>
+    <td>My Plants</td>
+  </tr>
+  <tr>
+    <td><img src="Documentation/images/BESTMATCH.png" width=300 />
+    <td><img src="Documentation/images/MATCH.png" width=300 />
+    <td><img src="Documentation/images/MYPLANTS.png" width=300 />
+  </tr>
+ </table>
+
+
 ## Code
 
 <ins>General</ins>
@@ -26,27 +59,7 @@ Users can upload a saved image or take a picture of plants using their phones. T
 - Persistent user login using secure http-only cookies
 - Front and backend protected routes using Axios interceptors
 
-
-## Images
-
-#### Sign Up & Log In
-<img src="documentation/images/Login.png" width="200px">
-<img src="documentation/images/Signup.png" width="200px">
-
-#### Home
-<img src="documentation/images/Home.png" width="200px">
-
-#### Plant ID
-<img src="documentation/images/bestmatch.png" width="200px">
-
-#### Plant Matches
-<img src="documentation/images/match.png" width="200px">
-
-#### My Plants and Drawer Menu
-<img src="documentation/images/myplants.png" width="200px">
-<img src="documentation/images/drawer.png" width="200px">
-
-### Team
+## Team
 
 <ins>Devs</ins> <br>
 - Alexandre Lord 
@@ -57,3 +70,4 @@ Users can upload a saved image or take a picture of plants using their phones. T
 - Bianca Liu
 - Tyannika Lam
 
+## Icebox Features
