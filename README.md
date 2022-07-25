@@ -30,7 +30,7 @@ Users can upload a saved image or take a picture of plants using their phones. T
 ## Images
 
 #### Sign Up & Log In
-<img src="Documentation/images/LOGIN.png" width="200px">
+<img src="Documentation/images/LOGIN.png" width="300px">
 <img src="Documentation/images/SIGNUP.png" width="200px">
 
 #### Home
