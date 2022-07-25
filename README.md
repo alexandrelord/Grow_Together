@@ -30,21 +30,21 @@ Users can upload a saved image or take a picture of plants using their phones. T
 ## Images
 
 #### Sign Up & Log In
-<img src="documentation/images/Login.png" width="200px">
-<img src="documentation/images/Signup.png" width="200px">
+<img src="Documentation/images/Login.png" width="200px">
+<img src="Documentation/images/Signup.png" width="200px">
 
 #### Home
-<img src="documentation/images/Home.png" width="200px">
+<img src="Documentation/images/Home.png" width="200px">
 
 #### Plant ID
-<img src="documentation/images/bestmatch.png" width="200px">
+<img src="Documentation/images/bestmatch.png" width="200px">
 
 #### Plant Matches
-<img src="documentation/images/match.png" width="200px">
+<img src="Documentation/images/match.png" width="200px">
 
 #### My Plants and Drawer Menu
-<img src="documentation/images/myplants.png" width="200px">
-<img src="documentation/images/drawer.png" width="200px">
+<img src="Documentation/images/myplants.png" width="200px">
+<img src="Documentation/images/drawer.png" width="200px">
 
 ### Team
 
