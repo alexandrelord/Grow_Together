@@ -18,8 +18,8 @@ The app was built with a Django REST API, and a ReactJS frontend. It connects to
 
 <table>
   <tr>
-    <td>Sign Up</td>
     <td>Log In</td>
+    <td>Sign Up</td>
   </tr>
   <tr>
     <td><img src="Documentation/images/LOGIN.png" width=270 />
