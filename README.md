@@ -22,16 +22,16 @@ The app was built with a Django REST API, and a ReactJS frontend. It connects to
     <td>Log In</td>
   </tr>
   <tr>
-    <td><img src="Documentation/images/LOGIN.png" width=300 />
-    <td><img src="Documentation/images/SIGNUP.png" width=300 />
+    <td><img src="Documentation/images/LOGIN.png" width=270 />
+    <td><img src="Documentation/images/SIGNUP.png" width=270 />
   </tr>
   <tr>
     <td>Home</td>
     <td>Side Menu</td>
   </tr>
   <tr>
-    <td><img src="Documentation/images/HOME.png" width=300 />
-    <td><img src="Documentation/images/DRAWER.png" width=300 />
+    <td><img src="Documentation/images/HOME.png" width=270 />
+    <td><img src="Documentation/images/DRAWER.png" width=270 />
   </tr>
   <tr>
   <tr>
@@ -40,9 +40,9 @@ The app was built with a Django REST API, and a ReactJS frontend. It connects to
     <td>My Plants</td>
   </tr>
   <tr>
-    <td><img src="Documentation/images/BESTMATCH.png" width=300 />
-    <td><img src="Documentation/images/MATCH.png" width=300 />
-    <td><img src="Documentation/images/MYPLANTS.png" width=300 />
+    <td><img src="Documentation/images/BESTMATCH.png" width=270 />
+    <td><img src="Documentation/images/MATCH.png" width=270 />
+    <td><img src="Documentation/images/MYPLANTS.png" width=270 />
   </tr>
  </table>
 
