@@ -62,12 +62,12 @@ Users can upload a saved image or take a picture of plants using their phones. T
 ## Team
 
 <ins>Devs</ins> <br>
-- Alexandre Lord 
-- Ishan Khosla
-- Nayab Kara
+- Alexandre Lord - [github](https://github.com/alexandrelord)
+- Ishan Khosla - [github](https://github.com/khos7990)
+- Nayab Kara - [github](https://github.com/NayabKara)
 
 <ins>UX/UI Designers</ins> <br>
-- Bianca Liu
-- Tyannika Lam
+- Bianca Liu - [linkedin](https://www.linkedin.com/in/bianca-yjl/)
+- Tyannika Lam - [linkedin](https://www.linkedin.com/in/tyannika-lam/)
 
 ## Icebox Features
